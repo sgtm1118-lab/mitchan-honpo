@@ -1,48 +1,55 @@
+/* スマホの画面をそのまま、パソコンでも真ん中に出す作り */
 :root{
-  --gunjo:#123a6b;--gunjo2:#0b2747;--sora:#3d8fd1;--sora2:#8fc1ea;
-  --mist:#eef5fb;--mist2:#e2eef8;--white:#fff;--ink:#14243a;--ink2:#4a5b70;
-  --line:rgba(18,58,107,.14);--ok:#1f7a5c;--ng:#b4432a;
-  --mincho:"Shippori Mincho B1","Hiragino Mincho ProN",serif;
-  --gothic:"Zen Kaku Gothic New",system-ui,-apple-system,sans-serif;
-  --latin:"Marcellus",serif;
+  --or:#f26b1d;--or2:#ff8a3d;--or-soft:#fff3eb;
+  --ink:#222;--ink2:#666;--ink3:#999;--line:#e8e8e8;--bg:#f4f1ec;--card:#fff;
+  --star:#f5a623;--ok:#1f8a5b;--ng:#d0402b;
+  --app:480px;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--white);color:var(--ink);font-family:var(--gothic);font-size:16px;line-height:1.9;letter-spacing:.03em;padding-bottom:76px}
-img{max-width:100%;height:auto;display:block}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Meiryo",system-ui,sans-serif;font-size:15px;line-height:1.7;
+  background:var(--bg) radial-gradient(circle,#e6dfd5 1.4px,transparent 1.6px) 0 0/22px 22px}
+img{max-width:100%;display:block}
 a{color:inherit}
-.wrap{width:min(1080px,100%);margin:0 auto;padding:0 16px}
-.narrow{width:min(760px,100%);margin:0 auto;padding:0 16px}
-.eyebrow{font-family:var(--latin);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sora);display:flex;align-items:center;gap:12px;margin:0}
-.eyebrow::before{content:"";width:30px;height:1px;background:currentColor}
-h2{font-family:var(--mincho);font-weight:700;font-size:clamp(1.5rem,5.4vw,2.2rem);line-height:1.5;margin:.4em 0 .7em;word-break:keep-all;overflow-wrap:anywhere}
-h3{font-family:var(--mincho);font-weight:700;line-height:1.5}
-p{margin:0 0 1em}
-.small{font-size:.85rem;color:var(--ink2)}
-section{padding:64px 0}
+button{font-family:inherit}
+
+.app{max-width:var(--app);margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 0 1px rgba(0,0,0,.04),0 10px 40px rgba(0,0,0,.08);padding-bottom:84px;position:relative}
 
 /* 上の帯 */
-.top{position:sticky;top:0;z-index:20;background:var(--gunjo2);color:#fff}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
-.brand{text-decoration:none;line-height:1.2}
-.brand b{font-family:var(--mincho);font-size:1.1rem;letter-spacing:.12em}
-.brand small{display:block;font-family:var(--latin);font-size:.6rem;letter-spacing:.3em;opacity:.8}
-.tabs{display:flex;gap:6px}
-.tabs a{text-decoration:none;font-size:.88rem;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);white-space:nowrap}
-.tabs a[aria-current="page"]{background:#fff;color:var(--gunjo2);border-color:#fff}
+.bar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);height:52px;display:flex;align-items:center;gap:10px;padding:0 12px}
+.bar .back{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;text-decoration:none;font-size:20px;color:var(--ink);flex:none}
+.bar .shop{font-weight:800;font-size:16px;text-decoration:none;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .shop small{font-weight:600;color:var(--or);font-size:11px;margin-left:6px}
+.bar .tel{flex:none;display:flex;align-items:center;gap:4px;text-decoration:none;font-size:12px;font-weight:700;color:var(--or);border:1px solid var(--or);border-radius:999px;padding:5px 10px}
 
-/* 下の連絡帯 */
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);border-top:1px solid var(--line);backdrop-filter:blur(6px)}
-.dock .wrap{display:flex;gap:10px;padding-top:10px;padding-bottom:10px}
-.dock a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font-weight:700;border-radius:999px;padding:12px 10px;font-size:.95rem}
-.dock .tel{border:1px solid var(--gunjo);color:var(--gunjo)}
-.dock .go{background:var(--gunjo);color:#fff}
+/* 下の帯（予約ボタン） */
+.cta{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--app);z-index:30;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px}
+.cta .sum{flex:none;line-height:1.2}
+.cta .sum small{display:block;font-size:11px;color:var(--ink2)}
+.cta .sum b{font-size:20px}
+.cta .btn{flex:1}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--or);color:#fff;border:0;border-radius:10px;padding:14px 16px;font-size:16px;font-weight:800;text-decoration:none;cursor:pointer;width:100%}
+.btn:disabled{background:#f5b48f;cursor:default}
+.btn.line{background:#fff;color:var(--or);border:1.5px solid var(--or)}
 
-.btn-main{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;background:var(--gunjo);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;font-size:1.05rem;border:0;cursor:pointer}
-.btn-sub{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border:1px solid var(--gunjo);color:var(--gunjo);text-decoration:none;border-radius:999px;font-weight:700}
+/* 区切りのあるかたまり */
+.sec{padding:20px 16px;border-top:8px solid #f6f6f6}
+.sec h2{font-size:17px;margin:0 0 12px;font-weight:800}
+.muted{color:var(--ink2);font-size:13px}
+.stars{color:var(--star);letter-spacing:1px}
 
-.foot{background:var(--gunjo2);color:#dfe9f5;padding:40px 0 30px;font-size:.88rem}
-.foot dl{display:grid;grid-template-columns:6em minmax(0,1fr);gap:6px 12px;margin:0 0 16px}
-.foot dt{opacity:.7}
-.foot dd{margin:0}
-.foot .copy{font-family:var(--latin);letter-spacing:.24em;font-size:.7rem;opacity:.6;margin-top:20px}
+/* カテゴリーボタン（横にすべる丸ボタン） */
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;margin:0 -16px 6px;padding:2px 16px 6px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer;color:var(--ink);line-height:1.3;text-align:center}
+.chip small{display:block;font-size:11px;font-weight:600;color:var(--ink2)}
+.chip[aria-selected="true"]{background:var(--or);border-color:var(--or);color:#fff}
+.chip[aria-selected="true"] small{color:#ffe6d6}
+
+/* パソコンで見たときだけ、横に出るお知らせ */
+.side{display:none}
+@media(min-width:960px){
+  .side{display:block;position:fixed;top:50%;transform:translateY(-50%);right:calc(50% + var(--app)/2 + 32px);width:210px;background:#fff;border-radius:14px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.1);font-size:13px;text-align:center}
+  .side b{display:block;font-size:15px;margin-bottom:4px}
+  .side .num{display:block;font-size:20px;font-weight:800;color:var(--or);text-decoration:none;margin:8px 0 2px}
+}
