@@ -1,0 +1,48 @@
+:root{
+  --gunjo:#123a6b;--gunjo2:#0b2747;--sora:#3d8fd1;--sora2:#8fc1ea;
+  --mist:#eef5fb;--mist2:#e2eef8;--white:#fff;--ink:#14243a;--ink2:#4a5b70;
+  --line:rgba(18,58,107,.14);--ok:#1f7a5c;--ng:#b4432a;
+  --mincho:"Shippori Mincho B1","Hiragino Mincho ProN",serif;
+  --gothic:"Zen Kaku Gothic New",system-ui,-apple-system,sans-serif;
+  --latin:"Marcellus",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--gothic);font-size:16px;line-height:1.9;letter-spacing:.03em;padding-bottom:76px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{width:min(1080px,100%);margin:0 auto;padding:0 16px}
+.narrow{width:min(760px,100%);margin:0 auto;padding:0 16px}
+.eyebrow{font-family:var(--latin);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--sora);display:flex;align-items:center;gap:12px;margin:0}
+.eyebrow::before{content:"";width:30px;height:1px;background:currentColor}
+h2{font-family:var(--mincho);font-weight:700;font-size:clamp(1.5rem,5.4vw,2.2rem);line-height:1.5;margin:.4em 0 .7em;word-break:keep-all;overflow-wrap:anywhere}
+h3{font-family:var(--mincho);font-weight:700;line-height:1.5}
+p{margin:0 0 1em}
+.small{font-size:.85rem;color:var(--ink2)}
+section{padding:64px 0}
+
+/* 上の帯 */
+.top{position:sticky;top:0;z-index:20;background:var(--gunjo2);color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:58px}
+.brand{text-decoration:none;line-height:1.2}
+.brand b{font-family:var(--mincho);font-size:1.1rem;letter-spacing:.12em}
+.brand small{display:block;font-family:var(--latin);font-size:.6rem;letter-spacing:.3em;opacity:.8}
+.tabs{display:flex;gap:6px}
+.tabs a{text-decoration:none;font-size:.88rem;font-weight:700;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);white-space:nowrap}
+.tabs a[aria-current="page"]{background:#fff;color:var(--gunjo2);border-color:#fff}
+
+/* 下の連絡帯 */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.96);border-top:1px solid var(--line);backdrop-filter:blur(6px)}
+.dock .wrap{display:flex;gap:10px;padding-top:10px;padding-bottom:10px}
+.dock a{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;font-weight:700;border-radius:999px;padding:12px 10px;font-size:.95rem}
+.dock .tel{border:1px solid var(--gunjo);color:var(--gunjo)}
+.dock .go{background:var(--gunjo);color:#fff}
+
+.btn-main{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;background:var(--gunjo);color:#fff;text-decoration:none;border-radius:999px;font-weight:700;font-size:1.05rem;border:0;cursor:pointer}
+.btn-sub{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border:1px solid var(--gunjo);color:var(--gunjo);text-decoration:none;border-radius:999px;font-weight:700}
+
+.foot{background:var(--gunjo2);color:#dfe9f5;padding:40px 0 30px;font-size:.88rem}
+.foot dl{display:grid;grid-template-columns:6em minmax(0,1fr);gap:6px 12px;margin:0 0 16px}
+.foot dt{opacity:.7}
+.foot dd{margin:0}
+.foot .copy{font-family:var(--latin);letter-spacing:.24em;font-size:.7rem;opacity:.6;margin-top:20px}
