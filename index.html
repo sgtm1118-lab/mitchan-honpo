@@ -64,7 +64,7 @@
 .pgrid a{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-radius:12px;padding:12px;text-decoration:none;background:#fff;min-width:0}
 .pgrid a.wide{grid-column:1/-1}
 .pgrid .n{font-weight:700;font-size:14px;line-height:1.4}
-.pgrid .d{font-size:11px;color:var(--ink2);line-height:1.4}
+.pgrid .d{font-size:11px;color:var(--ink2);line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .pgrid .p{margin-top:auto;padding-top:6px;font-weight:800;font-size:17px;color:var(--navy)}
 .pgrid .p small{font-size:11px;color:var(--ink2);font-weight:600}
 .pgrid .go{font-size:11px;color:var(--ac);font-weight:700}
@@ -344,8 +344,8 @@ const CASES = [
     chips.appendChild(b);
     const div = document.createElement("div");
     div.className = "pane"; div.dataset.cat = cat; div.hidden = i > 0;
-    div.innerHTML = c.groups.map(g => '<p class="pgroup">' + g.title + '</p><div class="pgrid">' + g.items.map(it =>
-      '<a href="yoyaku.html?add=' + it.k + '"' + (it.desc && it.desc.length > 16 ? ' class="wide"' : '') + '><span class="n">' + it.name + '</span>'
+    div.innerHTML = c.groups.map(g => '<p class="pgroup">' + g.title + '</p><div class="pgrid">' + g.items.map((it, n) =>
+      '<a href="yoyaku.html?add=' + it.k + '"' + (n === g.items.length - 1 && g.items.length % 2 ? ' class="wide"' : '') + '><span class="n">' + it.name + '</span>'
       + (it.desc ? '<span class="d">' + it.desc + '</span>' : '')
       + '<span class="p">' + (it.check ? "ご相談" : (it.add ? "＋" : "") + yen(it.price) + '<small> / ' + it.unit + '</small>') + '</span>'
       + '<span class="go">このメニューで予約 →</span></a>').join("") + '</div>').join("");
