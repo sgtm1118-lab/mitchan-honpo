@@ -4,85 +4,122 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>みっちゃん本舗｜宮崎のエアコンクリーニング・ハウスクリーニング</title>
-<meta name="description" content="宮崎市のエアコンクリーニング・ハウスクリーニング専門店。夫婦で17年、元大手フランチャイズ上級研修講師。壁掛けエアコン1台6,490円。追加料金なし。ネットで予約できます。">
-<meta property="og:image" content="images/work.webp">
-<meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="common.css?v=3">
+<meta name="description" content="宮崎のエアコンクリーニング・ハウスクリーニング。全国のハウスクリーニング加盟店に技術を教えてきた店主が伺います。大東建託パートナーズ 品質の部 宮崎県第一位。ネットで予約できます。">
+<meta property="og:image" content="images/tub-after.jpg">
+<meta name="theme-color" content="#13294b">
+<link rel="stylesheet" href="common.css?v=4">
 <style>
-.hero{aspect-ratio:4/3;width:100%;object-fit:cover;background:#eee}
-.prof{padding:0 16px 18px;text-align:center}
-.prof .av{width:96px;height:96px;border-radius:50%;object-fit:cover;border:4px solid #fff;margin:-48px auto 8px;box-shadow:0 2px 10px rgba(0,0,0,.12);background:#eee}
-.prof h1{font-size:18px;line-height:1.5;margin:0 0 6px;text-align:left}
-.prof .catch{font-size:13px;color:var(--ink2);text-align:left;margin:0 0 12px}
-.prof .price{display:flex;align-items:baseline;gap:6px;margin:0 0 6px}
-.prof .price small{font-size:12px;color:var(--ink2)}
-.prof .price b{font-size:26px}
-.prof .rate{display:flex;align-items:center;gap:8px;font-size:13px;margin-bottom:12px;flex-wrap:wrap}
-.prof .rate b{font-size:18px}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
-.tags span{font-size:12px;font-weight:700;background:var(--or-soft);color:#c4510f;border-radius:6px;padding:3px 8px}
-.boss{display:flex;align-items:center;gap:10px;font-size:14px;text-align:left}
-.boss img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+/* トップ：さわって比べる「before / after」 */
+.top{background:var(--navy);color:#fff;padding:22px 16px 26px;position:relative;overflow:hidden}
+.top::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(20,163,148,.35),transparent 70%);top:-150px;right:-120px}
+.top .kicker{position:relative;display:inline-block;font-size:12px;font-weight:700;color:#9fe3d9;border:1px solid rgba(159,227,217,.5);border-radius:999px;padding:2px 10px;margin:0 0 10px}
+.top h1{position:relative;font-size:27px;line-height:1.35;margin:0 0 8px;letter-spacing:.02em}
+.top h1 em{font-style:normal;color:#9fe3d9}
+.top .lead{position:relative;font-size:14px;color:#d3dcea;margin:0 0 16px}
 
-.more{position:relative}
-.more .body{max-height:9.5em;overflow:hidden;position:relative}
-.more.open .body{max-height:none}
-.more:not(.open) .body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3em;background:linear-gradient(transparent,#fff)}
-.more button{display:block;margin:8px auto 0;background:none;border:0;color:var(--or);font-weight:700;font-size:14px;cursor:pointer;padding:6px 12px}
-.text p{margin:0 0 .8em}
+.ba{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:#222;user-select:none;touch-action:pan-y;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .b{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.ba .knob{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;margin-left:-1.5px;background:#fff;pointer-events:none}
+.ba .knob::after{content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#fff;color:var(--navy);font-weight:800;font-size:16px;display:grid;place-items:center;box-shadow:0 2px 10px rgba(0,0,0,.3);letter-spacing:2px}
+.ba .lb{position:absolute;top:10px;font-size:11px;font-weight:800;letter-spacing:.1em;padding:3px 9px;border-radius:6px;pointer-events:none}
+.ba .lb.l{left:10px;background:rgba(0,0,0,.6);color:#fff}
+.ba .lb.r{right:10px;background:var(--ac2);color:#fff}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba-cap{display:flex;justify-content:space-between;font-size:12px;margin-top:8px;color:#b9c6d6}
+.top .ba-cap{color:#b9c6d6}
 
-.plist{list-style:none;margin:0;padding:0}
-.plist li a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none}
-.plist li:last-child a{border-bottom:0}
-.plist .n{min-width:0}
-.plist .n b{display:block;font-weight:600}
-.plist .n span{font-size:12px;color:var(--ink2)}
-.plist .p{flex:none;font-weight:800;white-space:nowrap}
-.plist .p::after{content:"›";color:var(--ink3);margin-left:8px;font-weight:400}
-.plist .sub{font-size:13px;font-weight:800;color:var(--ink2);padding:12px 0 2px;border:0}
+.stats{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
+.stats div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 6px;text-align:center;font-size:11px;line-height:1.35;color:#d3dcea}
+.stats b{display:block;font-size:20px;color:#fff;line-height:1.2;margin-bottom:2px}
+.stats b small{font-size:12px}
+
+.quick{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;background:var(--ac-soft)}
+.quick .p small{display:block;font-size:12px;color:var(--ink2)}
+.quick .p b{font-size:24px;color:var(--navy)}
+.quick .p b small{display:inline;font-size:12px;color:var(--ink2);font-weight:600}
+.quick a{flex:none;width:auto;padding:12px 18px;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px 0}
+.tags span{font-size:12px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.tags span::before{content:"✓ ";color:var(--ac)}
+
+/* 表彰 */
+.award{border:2px solid #ead9b0;background:linear-gradient(180deg,#fffaf0,#fff);border-radius:16px;padding:14px}
+.award img{border-radius:10px;width:100%}
+.award .ttl{display:flex;align-items:center;gap:10px;margin:12px 0 6px}
+.award .medal{flex:none;width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f8e3a3,var(--gold));color:#fff;font-weight:900;display:grid;place-items:center;font-size:13px;line-height:1.1;text-align:center;box-shadow:0 2px 6px rgba(184,137,45,.4)}
+.award .ttl b{font-size:16px;line-height:1.4;color:var(--navy)}
+.award p{margin:0;font-size:14px}
+
+/* 作業事例 */
+.cases{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -16px 12px;padding:0 16px}
+.cases::-webkit-scrollbar{display:none}
+.cases button{flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 13px;font-size:13px;font-weight:700;cursor:pointer;color:var(--ink2)}
+.cases button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+#caseBox .ba{aspect-ratio:3/4}
+.sec .ba-cap{color:var(--ink2)}
+
+/* 料金 */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pgrid a{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-radius:12px;padding:12px;text-decoration:none;background:#fff;min-width:0}
+.pgrid a.wide{grid-column:1/-1}
+.pgrid .n{font-weight:700;font-size:14px;line-height:1.4}
+.pgrid .d{font-size:11px;color:var(--ink2);line-height:1.4}
+.pgrid .p{margin-top:auto;padding-top:6px;font-weight:800;font-size:17px;color:var(--navy)}
+.pgrid .p small{font-size:11px;color:var(--ink2);font-weight:600}
+.pgrid .go{font-size:11px;color:var(--ac);font-weight:700}
+.pgroup{font-size:13px;font-weight:800;color:var(--ink2);margin:14px 0 8px}
+.pgroup:first-child{margin-top:0}
 .pane[hidden]{display:none}
 
-.rv-head{display:flex;gap:10px;margin-bottom:12px}
-.rv-head div{flex:1;border:1px solid var(--line);border-radius:10px;padding:8px 6px;text-align:center;font-size:11px;color:var(--ink2);line-height:1.4}
-.rv-head b{display:block;font-size:20px;color:var(--ink)}
-.rvs{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 6px;scrollbar-width:none}
-.rvs::-webkit-scrollbar{display:none}
-.rv{flex:none;width:82%;scroll-snap-align:start;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:14px}
-.rv .who{font-size:12px;color:var(--ink2);margin-bottom:6px}
-.rv p{margin:0}
+/* 店主 */
+.owner{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.owner img{width:92px;height:92px;border-radius:16px;object-fit:cover;object-position:center 30%;flex:none}
+.owner b{display:block;font-size:18px;color:var(--navy)}
+.owner span{font-size:12px;color:var(--ink2);line-height:1.5;display:block}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:4.6em minmax(0,1fr);gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.tl li:last-child{border-bottom:0}
+.tl .y{font-weight:800;color:var(--ac);font-size:13px}
+.why{margin-top:12px;background:#fff;border-left:4px solid var(--ac);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14px}
+.why b{display:block;color:var(--navy);margin-bottom:4px}
+.clients{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.clients span{font-size:12px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 8px}
 
-.ph2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
-.ph2 img{border-radius:10px;aspect-ratio:4/3;object-fit:cover;width:100%}
-.ph2 figcaption{font-size:11px;color:var(--ink2);margin-top:2px}
-.ph2 figure{margin:0}
+/* 口コミ */
+.rv-sum{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rv-sum .big{font-size:40px;font-weight:800;color:var(--navy);line-height:1}
+.rv-sum .muted{line-height:1.5}
+.rv{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;background:#fff}
+.rv .who{display:flex;justify-content:space-between;font-size:12px;color:var(--ink2);margin-bottom:4px}
+.rv p{margin:0;font-size:14px}
+.rv.more-rv{display:none}
+.show-all .rv.more-rv{display:block}
+.btn-more{display:block;width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;font-weight:700;color:var(--navy);cursor:pointer}
 
-.work{display:flex;flex-wrap:wrap;gap:6px}
-.work span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;list-style:none;margin:0;padding:0;counter-reset:f}
+.flow li{counter-increment:f;text-align:center;font-size:12px;line-height:1.4;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 4px}
+.flow li::before{content:counter(f);display:grid;place-items:center;width:26px;height:26px;margin:0 auto 6px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:13px}
+.flow b{display:block;font-size:13px;color:var(--navy)}
+.flow-note{font-size:13px;color:var(--ink2);margin:10px 0 0}
 
-.flow{list-style:none;margin:0;padding:0;counter-reset:f}
-.flow li{position:relative;padding:0 0 16px 44px;counter-increment:f}
-.flow li::before{content:counter(f);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--or);color:#fff;font-weight:800;display:grid;place-items:center;font-size:14px}
-.flow li:not(:last-child)::after{content:"";position:absolute;left:14px;top:32px;bottom:2px;width:2px;background:var(--or-soft)}
-.flow b{display:block}
-.flow span{font-size:13px;color:var(--ink2)}
-
-details.acc{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;padding:0 14px}
-details.acc summary{cursor:pointer;font-weight:700;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:8px}
+details.acc{border:1px solid var(--line);border-radius:12px;margin-bottom:8px;padding:0 14px;background:#fff}
+details.acc summary{cursor:pointer;font-weight:700;padding:13px 0;list-style:none;display:flex;justify-content:space-between;gap:8px}
 details.acc summary::-webkit-details-marker{display:none}
-details.acc summary::after{content:"＋";color:var(--or)}
+details.acc summary::after{content:"＋";color:var(--ac)}
 details.acc[open] summary::after{content:"－"}
 details.acc .in{padding:0 0 12px;font-size:14px}
 details.acc ul{margin:.3em 0;padding-left:1.2em}
-
-.qa dt{font-weight:700;display:flex;gap:8px;margin-top:10px}
-.qa dt::before{content:"Q";color:var(--or);font-weight:800}
-.qa dd{margin:4px 0 0;display:flex;gap:8px;font-size:14px;color:var(--ink2)}
-.qa dd::before{content:"A";color:var(--ink3);font-weight:800}
+details.acc p{margin:0 0 .5em}
 
 table.cancel{width:100%;border-collapse:collapse;font-size:14px}
 table.cancel td{padding:8px 0;border-bottom:1px solid var(--line)}
 table.cancel td:last-child{text-align:right;font-weight:700}
 
+.contact{display:grid;gap:8px;margin-bottom:14px}
+.contact a{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;background:#fff}
+.contact a b{font-size:18px;color:var(--navy)}
+.contact a span{font-size:12px;color:var(--ink2)}
 dl.info{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:8px 10px;margin:0;font-size:14px}
 dl.info dt{color:var(--ink2)}
 dl.info dd{margin:0}
@@ -93,132 +130,152 @@ dl.info dd{margin:0}
 <div class="app">
   <header class="bar">
     <a class="shop" href="index.html">みっちゃん本舗<small>宮崎</small></a>
-    <a class="tel" href="tel:08035315425">☎ 電話</a>
+    <a class="tel" href="tel:0120992166">☎ 無料電話</a>
   </header>
 
-  <img class="hero" src="images/work.webp" alt="エアコンを分解して洗浄しているところ" width="1200" height="900">
-  <div class="prof">
-    <img class="av" src="images/avatar.webp" alt="店長 橋口 淳さんと奥さま" width="400" height="400">
-    <h1>元大手ハウスクリーニング上級研修講師。夫婦で17年、宮崎のエアコンをていねいに洗います</h1>
-    <p class="catch">元大手フランチャイズ講師・上級技術アドバイザー。全国の加盟店にエアコン分解洗浄の技術を指導。大東建託パートナーズの品質の部で宮崎県第一位。</p>
-    <div class="price"><small>壁掛けエアコン 1台</small><b>¥6,490</b><small>（税込）</small></div>
-    <div class="rate"><span class="stars">★★★★★</span><b>5.0</b><span class="muted">Googleマップ 口コミ63件</span></div>
-    <div class="tags">
-      <span>追加料金一切なし</span><span>作業の外注なし</span><span>女性スタッフ指定OK</span><span>出張費無料</span><span>作業時間の目安 120分/台</span>
+  <section class="top">
+    <span class="kicker">宮崎のエアコン・ハウスクリーニング</span>
+    <h1>汚れの落ち方が、<br><em>ちがう。</em></h1>
+    <p class="lead">全国の加盟店に清掃技術を教えてきた店主が、ご自宅に伺います。</p>
+    <div class="ba" id="heroBa">
+      <img src="images/tub-after.jpg" alt="洗ったあとの浴槽" width="800" height="1000">
+      <img class="b" src="images/tub-before.jpg" alt="洗う前の浴槽（白い水あか）" width="800" height="1000">
+      <span class="lb l">BEFORE</span><span class="lb r">AFTER</span>
+      <span class="knob"></span>
+      <input type="range" min="0" max="100" value="50" aria-label="洗う前と後を比べる">
     </div>
-    <div class="boss"><img src="images/futari.webp" alt="" width="80" height="80"><div>店長：橋口 淳<br><span class="muted">エアコンクリーニング・ハウスクリーニング専門店</span></div></div>
+    <div class="ba-cap"><span>← 指でずらして比べられます</span><span>浴槽の水あか取り</span></div>
+    <div class="stats">
+      <div><b>★5.0</b>Google口コミ<br>63件</div>
+      <div><b>1<small>位</small></b>品質の部<br>宮崎県</div>
+      <div><b>17<small>年</small></b>夫婦で<br>営業</div>
+    </div>
+  </section>
+
+  <div class="quick">
+    <div class="p"><small>壁掛けエアコン 1台</small><b>¥6,490<small>（税込）</small></b></div>
+    <a class="btn" href="#price">料金を見る</a>
   </div>
+  <div class="tags"><span>追加料金なし</span><span>出張費無料</span><span>作業はすべて自社</span><span>クレジットカードOK</span></div>
 
   <section class="sec">
-    <h2>セールスポイント</h2>
-    <div class="more text" id="m1"><div class="body">
-      <p>みっちゃん本舗の橋口 淳と申します。2009年に夫婦でハウスクリーニングのフランチャイズ事業を創業し、2016年に法人を設立。業界歴は17年目です。</p>
-      <p>2018年から2021年までの3年間は、フランチャイズ本部の公式研修講師・上級技術アドバイザーとして、全国各地で清掃技術の指導や洗剤の開発にも携わりました。テレビ宮崎・MRT宮崎放送にも出演させていただいています。</p>
-      <p>「丁寧で親切」と女性のお客さまからも好評をいただいています。作業の手順や汚れている所を、その場でお見せしながら説明します。対応エリア外や時間外のご依頼も、できる限りご相談に応じます。</p>
-      <p>私たち夫婦が心を込めて、あなたのお宅にお伺いします！</p>
-    </div><button type="button">続きを読む</button></div>
+    <h2>表彰されました</h2>
+    <div class="award">
+      <img src="images/award.jpg" alt="大東建託協力会からの表彰状（品質の部）" width="1000" height="750" loading="lazy">
+      <div class="ttl"><span class="medal">宮崎<br>1位</span><b>大東建託パートナーズ株式会社<br>品質の部で表彰（2025年11月）</b></div>
+      <p>入居者さまへのアンケートで、ハウスクリーニングの品質が<b>宮崎県第一位</b>と評価され、表彰されました。</p>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <h2>作業事例</h2>
+    <div class="cases" role="tablist" id="cases"></div>
+    <div id="caseBox"></div>
+    <p class="muted" style="margin:10px 0 0">すべて、みっちゃん本舗が実際に作業した写真です。</p>
   </section>
 
   <section class="sec" id="price">
-    <h2>料金表</h2>
+    <h2>料金</h2>
     <div class="chips" role="tablist" id="pchips"></div>
     <div id="plists"></div>
-    <p class="muted" style="margin:10px 0 0">料金はすべて税込です。メニューを押すと、そのまま予約に進めます。</p>
+    <p class="muted" style="margin:12px 0 0">料金はすべて税込・出張費無料（対応エリア内）。押すと、そのメニューで予約に進めます。</p>
   </section>
 
-  <section class="sec">
-    <h2>口コミ</h2>
-    <div class="rv-head">
-      <div><b>5.0</b>Googleマップ<br>63件</div>
-      <div><b>5.00</b>くらしのマーケット<br>27件</div>
-      <div><b>5.0</b>ミツモア<br>21件</div>
+  <section class="sec tint">
+    <h2>店主のこと</h2>
+    <div class="owner">
+      <img src="images/owner.jpg" alt="店主 橋口 淳" width="751" height="1000" loading="lazy">
+      <div><b>橋口 淳</b><span>ハウスクリーニング 技術コンサルタント<br>みっちゃん本舗（株式会社杉田メンテナンス）</span></div>
     </div>
-    <div class="rvs">
-      <div class="rv"><div class="who"><span class="stars">★★★★★</span> エアコン・壁掛け</div><p>シロッコファンがかなりカビていて、取り外しでのクリーニングを提案いただき、キレイにしていただきました。カビ臭さも消え、これから1年快適に過ごせます。</p></div>
-      <div class="rv"><div class="who"><span class="stars">★★★★★</span> エアコン・壁掛け</div><p>汚れている箇所の説明や作業の工程の説明を細やかにしていただきながら作業を完了していただきました。時期が来たらまたお願いしたいと思います。</p></div>
-      <div class="rv"><div class="who"><span class="stars">★★★★★</span> エアコン・壁掛け</div><p>作業内容や手順を分かりやすく説明してくれたので安心しておまかせ出来ました。自分では掃除しきれない内部までピカピカになり爽やかな風が出て満足です。</p></div>
-      <div class="rv"><div class="who"><span class="stars">★★★★★</span> エアコン・壁掛け</div><p>今までの他の業者さんのクリーニングではどうしても臭いが残っていたのですが、今回分解洗浄をしてもらったので臭いが無くて快適になりました。</p></div>
-      <div class="rv"><div class="who"><span class="stars">★★★★★</span> エアコン2台</div><p>エアコンの効きが悪くなってしまっていて、18℃でも暑い状態から25℃でも涼しくなりました。</p></div>
-      <div class="rv"><div class="who"><span class="stars">★★★★★</span> エアコン・洗面所</div><p>ご夫婦でされていて、手際も対応もよく、丁寧にやって下さいました。洗面台を貸したのですが、最初より綺麗になっていて、申し訳ないくらいです。</p></div>
-    </div>
-    <p class="muted" style="margin:8px 0 0">★と件数は2026年10月時点。口コミは一部を引用しています。</p>
-  </section>
-
-  <section class="sec">
-    <h2>詳しいサービス内容</h2>
-    <div class="ph2">
-      <figure><img src="images/futari.webp" alt="橋口さんご夫婦" width="1200" height="900" loading="lazy"><figcaption>お伺いするのは、このふたりです</figcaption></figure>
-      <figure><img src="images/sink.webp" alt="磨き上げたステンレスのシンク" width="1500" height="1125" loading="lazy"><figcaption>水回りもおまかせください</figcaption></figure>
-    </div>
-    <p style="font-weight:700;margin:0 0 6px">エアコン（壁掛け）の作業内容</p>
-    <div class="work"><span>外装カバーの清掃</span><span>フィルターの洗浄</span><span>本体内部の高圧洗浄</span><span>ドレンパンの洗浄</span><span>作業場所の簡易清掃</span></div>
-  </section>
-
-  <section class="sec">
-    <h2>作業までの流れ</h2>
-    <ol class="flow">
-      <li><b>ネット予約</b><span>下の「予約に進む」から、メニューと希望日を選んで送ってください。</span></li>
-      <li><b>予約の確認</b><span>こちらからご連絡して、作業日を決めます。</span></li>
-      <li><b>作業</b><span>決まった日時にお伺いして作業します。汚れの具合もその場でお見せします。</span></li>
-      <li><b>お支払い</b><span>作業が終わったら、料金をお支払いください。</span></li>
+    <ol class="tl">
+      <li><span class="y">2009年</span><span>宮崎で、大手ハウスクリーニングチェーンの加盟店として開業。最初の3年は技術不足で苦しみ、自分で技術を身につけると決めました。</span></li>
+      <li><span class="y">2014〜<br>2017年</span><span>洗剤と機材の使い方を、独自に確立。</span></li>
+      <li><span class="y">2018年</span><span>チェーン本部に「ハイレベル研修」を提案し、採用されました。</span></li>
+      <li><span class="y">2018〜<br>2020年</span><span>加盟店で初めての「公式研修講師・上級技術アドバイザー」に。全国の加盟店に技術を教え、洗剤や機材の開発にも関わりました。</span></li>
+      <li><span class="y">2024年末</span><span>チェーンを離れ、「みっちゃん本舗」として独立。</span></li>
+      <li><span class="y">2025年</span><span>大東建託パートナーズ 品質の部で宮崎県第一位として表彰。</span></li>
     </ol>
+    <div class="why"><b>独立した理由</b>お客さまに喜んでいただける一生ものの技術を、もっと広めたい。自分の技術と経験を、困っている同業の方の力にもしたい。そのために看板を外して、自分たちの名前で仕事をすることにしました。</div>
+    <p style="font-weight:700;margin:16px 0 0;font-size:14px">主なお取引先</p>
+    <div class="clients"><span>宮崎大学生活協同組合</span><span>大東建託パートナーズ株式会社</span><span>生活協同組合コープみやざき</span><span>日本郵便株式会社</span><span>株式会社穴吹コミュニティ</span></div>
+  </section>
+
+  <section class="sec">
+    <h2>お客さまの声</h2>
+    <div class="rv-sum"><span class="big">5.0</span><div class="muted"><span class="stars">★★★★★</span><br>Googleの口コミ 63件（2026年10月時点）</div></div>
+    <div id="rvs">
+      <div class="rv"><div class="who"><span>宮崎市 河野様</span><span>エアコン・キッチン・浴室</span></div><p>諦めかけていた長年の頑固な汚れがここまでキレイになるとは！びっくりしました。経験と技術が際立っていらっしゃいます。アドバイスしてくださいますし安心して相談できるので、また次回も宜しくお願いいたします。</p></div>
+      <div class="rv"><div class="who"><span>宮崎市 haruhapi様</span><span>職場の床・エアコン</span></div><p>お掃除がとても丁寧で、大変満足しております。使用されている洗剤も、素材に負担をかけないよう配慮されており、とても安心できました。何より、家族皆さんのお人柄がとても良く、最後まで気持ちよく過ごすことができました。</p></div>
+      <div class="rv"><div class="who"><span>Googleの口コミ</span><span>エアコン2台</span></div><p>エアコンの効きが悪くなってしまっていて、18℃でも暑い状態から25℃でも涼しくなりました。</p></div>
+      <div class="rv more-rv"><div class="who"><span>Googleの口コミ</span><span>エアコン2台</span></div><p>寝室とリビングの2台のエアコンを、とても丁寧に、綺麗にして頂きました。カビの匂いも全くなくなり、爽やかな風が気持ちいい。</p></div>
+      <div class="rv more-rv"><div class="who"><span>Googleの口コミ</span><span>エアコン</span></div><p>今の状態に合わせて、内容などをご提案頂きました。私が想定していたよりかなり安くやって頂き助かりました。</p></div>
+      <div class="rv more-rv"><div class="who"><span>Googleの口コミ</span><span>エアコン</span></div><p>気さくなご夫婦で急な予約だったにも関わらず早急に対応していただきました。</p></div>
+    </div>
+    <button type="button" class="btn-more" id="rvMore">ほかの声も見る</button>
+  </section>
+
+  <section class="sec tint">
+    <h2>ご依頼の流れ</h2>
+    <ol class="flow">
+      <li><b>ネット予約</b>メニューと希望日を送る</li>
+      <li><b>日程の連絡</b>こちらから連絡して決定</li>
+      <li><b>作業</b>汚れの具合もお見せします</li>
+      <li><b>お支払い</b>現金・カード</li>
+    </ol>
+    <p class="flow-note">お電話でのご依頼も受け付けています。</p>
   </section>
 
   <section class="sec">
     <h2>ご予約の前に</h2>
     <details class="acc"><summary>お引き受けできない機種・年式</summary><div class="in">
-      <p style="margin:0 0 .5em">製造から9年以上たったエアコンは、損害保険の対象外で部品の製造も終わっているため、保証の対象外になります。エアコンの真下のシールで、メーカー・型式・製造年をご確認ください。</p>
-      <p style="margin:0">次の機種はお断りしています。</p>
+      <p>製造から9年以上たったエアコンは、損害保険の対象外で部品の製造も終わっているため、保証の対象外になります。エアコンの真下のシールで、メーカー・型式・製造年をご確認ください。</p>
+      <p>次の機種はお断りしています。</p>
       <ul><li>日立 しろくま君 おそうじ機能付き Xシリーズ</li><li>パナソニック おそうじ機能付き Xシリーズ</li><li>富士通 ノクリア Xシリーズ（サイドファン付き）</li><li>シャープ おそうじ機能付き ネオレストシリーズ</li><li>三菱 霧ヶ峰 FZシリーズ</li></ul>
     </div></details>
-    <details class="acc"><summary>お客さまへのお願い</summary><div class="in"><ul>
-      <li>お掃除機能付きエアコンの場合は、必ず事前にお知らせください。</li>
-      <li>カバーの洗い場として、お風呂またはベランダをお借りします。</li>
+    <details class="acc"><summary>当日お願いしたいこと</summary><div class="in"><ul>
       <li>電気・水道をお借りします。</li>
-      <li>エアコンの下は作業スペースになるため、荷物や家具は事前に移動をお願いします。</li>
-      <li>高い所に付いているエアコンは足場が必要なため、予約のときにお知らせください。</li>
-      <li>取り外しができない・動作確認ができない・異音や故障があるなどの場合は、作業をお引き受けできないことがあります。</li>
-      <li>設備の劣化などにより、塗装がはがれてしまう場合があります。</li>
-      <li>変質や染色などの汚れは、完全に落とせない場合があります。</li>
+      <li>カバーを洗う場所として、お風呂かベランダをお借りします。</li>
+      <li>エアコンの下に作業スペースが必要です。家具や荷物は前もって動かしておいてください。</li>
+      <li>高い所のエアコンは足場が必要なので、予約のときにお知らせください。</li>
+      <li>お掃除機能付きエアコンは、必ず事前にお知らせください。</li>
     </ul></div></details>
-    <details class="acc"><summary>ご予約について</summary><div class="in"><ul>
-      <li>直前のご予約には対応できません。3日以上先の日にちでご予約ください。</li>
-      <li>希望日の候補は、なるべく日時をずらしてください。</li>
-      <li>ご希望の日時に伺えない場合は、こちらから別の日をご相談します。</li>
+    <details class="acc"><summary>あらかじめご了承いただきたいこと</summary><div class="in"><ul>
+      <li>取り外しや動作確認ができない、異音・故障があるなどの場合は、作業できないことがあります。</li>
+      <li>設備の劣化などで、塗装がはがれる場合があります。</li>
+      <li>変色や染みこんだ汚れは、完全に落とせない場合があります。</li>
     </ul></div></details>
   </section>
 
-  <section class="sec">
+  <section class="sec tint">
     <h2>よくある質問</h2>
-    <dl class="qa">
-      <dt>追加料金がかかることはありますか？</dt><dd>当日の急な追加料金は発生しません。お掃除機能付きかどうかや台数など、状況を事前にお知らせください。</dd>
-      <dt>無料で停められる駐車場がありません。</dt><dd>近くの有料パーキングを使いますので、その代金のご負担をお願いします。</dd>
-      <dt>作業を見ていてもいいですか？</dt><dd>はい。どこが汚れているか、どう洗うかを説明しながら作業します。</dd>
-      <dt>古いエアコンでも洗えますか？</dt><dd>製造から9年以上のものは保証の対象外になります。迷ったら型式を添えてご相談ください。</dd>
-    </dl>
+    <details class="acc"><summary>当日、料金が増えることは？</summary><div class="in">当日の急な追加料金はありません。お掃除機能付きかどうかや台数など、状況を先にお知らせください。</div></details>
+    <details class="acc"><summary>駐車場がありません</summary><div class="in">近くの有料パーキングを使いますので、その代金のご負担をお願いします。</div></details>
+    <details class="acc"><summary>支払い方法は？</summary><div class="in">現金のほか、各種クレジットカード（Mastercard・VISA・JCB・American Express）が使えます。</div></details>
+    <details class="acc"><summary>作業を見ていてもいいですか？</summary><div class="in">はい。どこが汚れているか、どう洗うかを説明しながら作業します。</div></details>
+    <details class="acc"><summary>載っていない場所も頼めますか？</summary><div class="in">状況をお聞きして、できるかどうか判断し、お見積もりします。お気軽にご相談ください。</div></details>
+    <details class="acc"><summary>キャンセル料は？</summary><div class="in">
+      <table class="cancel">
+        <tr><td>作業日の5日前まで</td><td>無料</td></tr>
+        <tr><td>4〜2日前</td><td>料金の25%</td></tr>
+        <tr><td>前日</td><td>料金の50%</td></tr>
+        <tr><td>当日</td><td>料金の100%</td></tr>
+      </table>
+      <p class="muted" style="margin:8px 0 0">作業日が決まってから48時間以内なら、キャンセル料はかかりません。</p>
+    </div></details>
   </section>
 
   <section class="sec">
-    <h2>キャンセルについて</h2>
-    <table class="cancel">
-      <tr><td>作業日の5日前まで</td><td>0%</td></tr>
-      <tr><td>作業日の4〜2日前</td><td>予約金額の25%</td></tr>
-      <tr><td>作業日の前日</td><td>予約金額の50%</td></tr>
-      <tr><td>作業日の当日</td><td>予約金額の100%</td></tr>
-    </table>
-    <p class="muted" style="margin:8px 0 0">作業日が決まってから48時間以内なら、何日前でもキャンセル料はいただきません。</p>
-  </section>
-
-  <section class="sec">
-    <h2>お店について</h2>
+    <h2>お店の情報</h2>
+    <div class="contact">
+      <a href="tel:0120992166"><span>無料電話（携帯に転送されます）</span><b>0120-992-166</b></a>
+      <a href="tel:08035315425"><span>店主の携帯（直通）</span><b>080-3531-5425</b></a>
+    </div>
     <dl class="info">
       <dt>屋号</dt><dd>みっちゃん本舗（株式会社杉田メンテナンス）</dd>
-      <dt>店長</dt><dd>橋口 淳</dd>
+      <dt>店主</dt><dd>橋口 淳</dd>
       <dt>所在地</dt><dd>〒880-0835<br>宮崎県宮崎市阿波岐原町坊ノ下2843-1</dd>
-      <dt>電話</dt><dd><a href="tel:08035315425">080-3531-5425</a><br><span class="muted">作業中は出られないことがあります</span></dd>
-      <dt>営業時間</dt><dd>9:00〜18:00（土日祝も営業）</dd>
-      <dt>定休日</dt><dd>年末年始</dd>
-      <dt>対応エリア</dt><dd>出張費無料：宮崎市・都城市・延岡市・日南市・小林市・日向市・串間市・西都市・三股町・高原町・国富町・綾町・高鍋町・新富町・西米良村・木城町・川南町・都農町・門川町</dd>
+      <dt>受付時間</dt><dd>8:00〜18:00（日曜休み）<br><span class="muted">作業中は電話に出られないことがあります</span></dd>
+      <dt>対応エリア</dt><dd>宮崎市・都城市・延岡市・日南市・小林市・日向市・串間市・西都市・三股町・高原町・国富町・綾町・高鍋町・新富町・西米良村・木城町・川南町・都農町・門川町</dd>
       <dt>インボイス</dt><dd>T3350001014853</dd>
     </dl>
   </section>
@@ -227,26 +284,57 @@ dl.info dd{margin:0}
 
   <div class="cta">
     <div class="sum"><small>壁掛けエアコン 1台</small><b>¥6,490</b></div>
-    <a class="btn" href="yoyaku.html">予約に進む</a>
+    <a class="btn" href="yoyaku.html">ネットで予約する</a>
   </div>
 </div>
 
 <aside class="side">
   <b>お電話でも受付中</b>
-  <span class="muted">作業中は出られないことがあります</span>
-  <a class="num" href="tel:08035315425">080-3531-5425</a>
-  <span class="muted">9:00〜18:00</span>
+  <span class="muted">無料・携帯に転送されます</span>
+  <a class="num" href="tel:0120992166">0120-992-166</a>
+  <span class="muted">8:00〜18:00（日曜休み）</span>
 </aside>
 
-<script src="menu.js?v=3"></script>
+<script src="menu.js?v=4"></script>
 <script>
-// 続きを読む
-document.querySelectorAll(".more button").forEach(b => b.addEventListener("click", () => {
-  const m = b.closest(".more"); m.classList.toggle("open");
-  b.textContent = m.classList.contains("open") ? "閉じる" : "続きを読む";
-}));
+// before / after を指でずらして比べる
+function slider(box){
+  const r = box.querySelector("input");
+  const set = () => box.style.setProperty("--x", r.value + "%");
+  r.addEventListener("input", set); set();
+}
+slider(document.getElementById("heroBa"));
 
-// 料金表（カテゴリーボタンで切りかえ）
+// 作業事例
+const CASES = [
+  { k: "tub",  name: "浴槽の水あか",       w: 800, h: 1000 },
+  { k: "wall", name: "浴室の壁（ホーロー）", w: 750, h: 1000 },
+  { k: "door", name: "浴室のとびら",       w: 750, h: 1000 },
+  { k: "tile", name: "浴室のタイル",       w: 750, h: 1000 },
+  { k: "sink", name: "キッチンのシンク",   w: 1000, h: 750 }
+];
+(() => {
+  const tabs = document.getElementById("cases"), box = document.getElementById("caseBox");
+  const show = c => {
+    tabs.querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", b.dataset.k === c.k));
+    box.innerHTML = '<div class="ba" style="aspect-ratio:' + c.w + '/' + c.h + '">'
+      + '<img src="images/' + c.k + '-after.jpg" alt="' + c.name + '（作業後）" loading="lazy">'
+      + '<img class="b" src="images/' + c.k + '-before.jpg" alt="' + c.name + '（作業前）" loading="lazy">'
+      + '<span class="lb l">BEFORE</span><span class="lb r">AFTER</span><span class="knob"></span>'
+      + '<input type="range" min="0" max="100" value="50" aria-label="' + c.name + 'の作業前と後を比べる"></div>'
+      + '<div class="ba-cap"><span>← 指でずらして比べられます</span><span>' + c.name + '</span></div>';
+    slider(box.querySelector(".ba"));
+  };
+  CASES.forEach(c => {
+    const b = document.createElement("button");
+    b.type = "button"; b.dataset.k = c.k; b.setAttribute("role", "tab"); b.textContent = c.name;
+    b.addEventListener("click", () => show(c));
+    tabs.appendChild(b);
+  });
+  show(CASES[0]);
+})();
+
+// 料金（カテゴリーボタンで切りかえ）
 (() => {
   const chips = document.getElementById("pchips"), lists = document.getElementById("plists");
   Object.entries(MENU).forEach(([cat, c], i) => {
@@ -254,12 +342,14 @@ document.querySelectorAll(".more button").forEach(b => b.addEventListener("click
     b.type = "button"; b.className = "chip"; b.setAttribute("role", "tab");
     b.setAttribute("aria-selected", i === 0); b.dataset.cat = cat; b.textContent = c.name;
     chips.appendChild(b);
-    const ul = document.createElement("ul");
-    ul.className = "plist pane"; ul.dataset.cat = cat; ul.hidden = i > 0;
-    ul.innerHTML = c.groups.map(g => '<li class="sub">' + g.title + '</li>' + g.items.map(it =>
-      '<li><a href="yoyaku.html?add=' + it.k + '"><span class="n"><b>' + it.name + '</b>' + (it.desc ? '<span>' + it.desc + '</span>' : '') + '</span>'
-      + '<span class="p">' + (it.check ? "ご相談" : (it.add ? "＋" : "") + yen(it.price) + " / " + it.unit) + '</span></a></li>').join("")).join("");
-    lists.appendChild(ul);
+    const div = document.createElement("div");
+    div.className = "pane"; div.dataset.cat = cat; div.hidden = i > 0;
+    div.innerHTML = c.groups.map(g => '<p class="pgroup">' + g.title + '</p><div class="pgrid">' + g.items.map(it =>
+      '<a href="yoyaku.html?add=' + it.k + '"' + (it.desc && it.desc.length > 16 ? ' class="wide"' : '') + '><span class="n">' + it.name + '</span>'
+      + (it.desc ? '<span class="d">' + it.desc + '</span>' : '')
+      + '<span class="p">' + (it.check ? "ご相談" : (it.add ? "＋" : "") + yen(it.price) + '<small> / ' + it.unit + '</small>') + '</span>'
+      + '<span class="go">このメニューで予約 →</span></a>').join("") + '</div>').join("");
+    lists.appendChild(div);
   });
   chips.addEventListener("click", e => {
     const b = e.target.closest(".chip"); if (!b) return;
@@ -267,6 +357,11 @@ document.querySelectorAll(".more button").forEach(b => b.addEventListener("click
     lists.querySelectorAll(".pane").forEach(p => p.hidden = p.dataset.cat !== b.dataset.cat);
   });
 })();
+
+// 口コミをもっと見る
+document.getElementById("rvMore").addEventListener("click", e => {
+  document.getElementById("rvs").classList.add("show-all"); e.target.remove();
+});
 </script>
 </body>
 </html>

@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>ご予約｜みっちゃん本舗</title>
 <meta name="description" content="みっちゃん本舗のネット予約。メニューを選ぶと料金がその場でわかります。">
-<meta name="theme-color" content="#ffffff">
-<link rel="stylesheet" href="common.css?v=3">
+<meta name="theme-color" content="#13294b">
+<link rel="stylesheet" href="common.css?v=4">
 <style>
 .steps{display:flex;padding:12px 16px 4px;gap:4px;background:#fff}
 .steps div{flex:1;text-align:center;font-size:11px;color:var(--ink3);font-weight:700}
 .steps div::before{content:"";display:block;height:4px;border-radius:2px;background:var(--line);margin-bottom:5px}
-.steps div.on{color:var(--or)}
-.steps div.on::before{background:var(--or)}
+.steps div.on{color:var(--ac)}
+.steps div.on::before{background:var(--ac)}
 .step{padding:14px 16px 24px}
 .step[hidden]{display:none}
 .step h1{font-size:19px;margin:4px 0 4px}
@@ -23,18 +23,18 @@
 .row .t{min-width:0}
 .row .t b{display:block;font-weight:600}
 .row .t span{font-size:12px;color:var(--ink2)}
-.row.sel .t b{color:var(--or)}
+.row.sel .t b{color:var(--ac)}
 .ctr{flex:none;display:flex;align-items:center;gap:4px}
-.ctr button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:20px;line-height:1;color:var(--or);cursor:pointer}
+.ctr button{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:20px;line-height:1;color:var(--ac);cursor:pointer}
 .ctr button:disabled{opacity:.3;cursor:default}
 .ctr output{min-width:28px;text-align:center;font-weight:800;font-size:17px}
 .sw{flex:none;position:relative;width:50px;height:30px}
 .sw input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;z-index:1}
 .sw span{position:absolute;inset:0;background:#ddd;border-radius:999px;transition:.2s}
 .sw span::after{content:"";position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
-.sw input:checked+span{background:var(--or)}
+.sw input:checked+span{background:var(--ac)}
 .sw input:checked+span::after{left:23px}
-.cat-total{display:flex;justify-content:space-between;background:var(--or-soft);border-radius:10px;padding:10px 14px;margin-top:14px;font-weight:700}
+.cat-total{display:flex;justify-content:space-between;background:var(--ac-soft);border-radius:10px;padding:10px 14px;margin-top:14px;font-weight:700}
 .pane[hidden]{display:none}
 
 .f{display:block;font-weight:700;font-size:14px;margin:16px 0 6px}
@@ -43,19 +43,19 @@
 input[type=text],input[type=tel],input[type=email],input[type=date],select,textarea{width:100%;padding:12px;border:1px solid #d6d6d6;border-radius:10px;font-size:16px;background:#fff;color:var(--ink);font-family:inherit;-webkit-appearance:none;appearance:none}
 select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23999' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center}
 textarea{min-height:90px}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--or2);border-color:transparent}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ac2);border-color:transparent}
 .bad{border-color:var(--ng)!important;background:#fff6f4!important}
 .opts{display:grid;gap:8px}
 .opts.g2{grid-template-columns:1fr 1fr}
 .opts label{display:flex;align-items:center;gap:8px;border:1px solid #d6d6d6;border-radius:10px;padding:11px 12px;font-size:14px;cursor:pointer;background:#fff}
-.opts label:has(input:checked){border-color:var(--or);background:var(--or-soft);font-weight:700}
-.opts input{accent-color:var(--or);width:18px;height:18px;margin:0;flex:none}
+.opts label:has(input:checked){border-color:var(--ac);background:var(--ac-soft);font-weight:700}
+.opts input{accent-color:var(--ac);width:18px;height:18px;margin:0;flex:none}
 .cand{border:1px solid var(--line);border-radius:12px;padding:4px 14px 14px;margin-bottom:12px}
 .cand .f:first-child{margin-top:12px}
 
 .conf{border:1px solid var(--line);border-radius:12px;padding:4px 14px;margin-bottom:12px}
 .conf h2{font-size:14px;margin:10px 0 4px;display:flex;justify-content:space-between}
-.conf h2 a{font-size:12px;color:var(--or);font-weight:700;cursor:pointer;text-decoration:none}
+.conf h2 a{font-size:12px;color:var(--ac);font-weight:700;cursor:pointer;text-decoration:none}
 .conf .l{display:flex;justify-content:space-between;gap:10px;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
 .conf .l:last-child{border-bottom:0}
 .conf .l span:first-child{color:var(--ink2);flex:none}
@@ -67,9 +67,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--or2);border-colo
 .msg.show{display:block}
 
 .done{text-align:center;padding:40px 20px}
-.done .ic{width:72px;height:72px;border-radius:50%;background:var(--or);color:#fff;font-size:38px;display:grid;place-items:center;margin:0 auto 14px}
+.done .ic{width:72px;height:72px;border-radius:50%;background:var(--ac);color:#fff;font-size:38px;display:grid;place-items:center;margin:0 auto 14px}
 .done h1{font-size:20px;margin:0 0 8px}
-.done .no{display:inline-block;background:var(--or-soft);border-radius:10px;padding:8px 16px;margin:10px 0 14px;font-weight:800;font-size:18px}
+.done .no{display:inline-block;background:var(--ac-soft);border-radius:10px;padding:8px 16px;margin:10px 0 14px;font-weight:800;font-size:18px}
 </style>
 </head>
 <body>
@@ -77,7 +77,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--or2);border-colo
   <header class="bar">
     <a class="back" href="index.html" id="back" aria-label="もどる">‹</a>
     <span class="shop">ご予約<small>みっちゃん本舗</small></span>
-    <a class="tel" href="tel:08035315425">☎ 電話</a>
+    <a class="tel" href="tel:0120992166">☎ 無料電話</a>
   </header>
   <div class="steps" id="steps"><div class="on">メニュー</div><div>希望日</div><div>お客さま</div><div>確認</div></div>
 
@@ -93,7 +93,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--or2);border-colo
     <!-- 2. 希望日 -->
     <section class="step" data-step="2" hidden>
       <h1>希望日を選ぶ</h1>
-      <p class="lead">3日以上先の日にちで、候補を3つ選んでください。なるべく日にちをずらしていただけると決まりやすくなります。</p>
+      <p class="lead">3日以上先の日にちで、候補を3つ選んでください（日曜日はお休みです）。なるべく日にちをずらしていただけると決まりやすくなります。</p>
       <div id="dates"></div>
     </section>
 
@@ -148,10 +148,10 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--or2);border-colo
     <!-- 送信完了 -->
     <section class="step done" data-step="5" hidden>
       <div class="ic">✓</div>
-      <h1>予約リクエストを受け付けました</h1>
+      <h1>ご予約を受け付けました</h1>
       <div class="no" id="doneNo"></div>
       <p>確認メールをお送りしました。<br>こちらからご連絡して、作業日を決めます。</p>
-      <p class="note">作業中は電話に出られないことがあります。お急ぎの方は ☎ <a href="tel:08035315425">080-3531-5425</a></p>
+      <p class="note">作業中は電話に出られないことがあります。お急ぎの方は ☎ <a href="tel:0120992166">0120-992-166</a>（無料）</p>
       <a class="btn line" href="index.html" style="margin-top:20px">お店のページにもどる</a>
     </section>
     <div class="step" style="padding-top:0"><div class="msg" id="msg" role="alert"></div></div>
@@ -165,17 +165,17 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--or2);border-colo
 
 <aside class="side">
   <b>お電話でも受付中</b>
-  <span class="muted">作業中は出られないことがあります</span>
-  <a class="num" href="tel:08035315425">080-3531-5425</a>
-  <span class="muted">9:00〜18:00</span>
+  <span class="muted">無料・携帯に転送されます</span>
+  <a class="num" href="tel:0120992166">0120-992-166</a>
+  <span class="muted">8:00〜18:00（日曜休み）</span>
 </aside>
 
-<script src="menu.js?v=3"></script>
+<script src="menu.js?v=4"></script>
 <script>
 // 予約を受け取る Google の仕組み（GAS）の住所
 const GAS_URL = "https://script.google.com/macros/s/AKfycbxlwOrbIzfmoT62UsLmPVnzpJvjXs0OBDcJE_SiYdJ-mi_buId1txUcp_AjSuAFoSny/exec";
-const TIMES = ["9時〜12時", "12時〜15時", "15時〜18時", "どの時間でもよい"];
-const NEXT_LABEL = { 1: "希望日を選ぶ", 2: "お客さま情報へ", 3: "内容を確認する", 4: "予約リクエストを送る" };
+const TIMES = ["8時〜12時", "12時〜15時", "15時〜18時", "どの時間でもよい"];
+const NEXT_LABEL = { 1: "希望日を選ぶ", 2: "お客さま情報へ", 3: "内容を確認する", 4: "この内容で予約する" };
 
 const $ = s => document.querySelector(s);
 const st = {}, ITEMS = {};
@@ -264,7 +264,7 @@ function check(n){
   const fm = $("#f"), c = calc();
   const need = {
     1: () => (c.aircon.lines.length || c.house.lines.length) ? "" : ["メニューを1つ以上選んでください。", null],
-    2: () => { for (const i of [1, 2, 3]) { const el = fm["date" + i]; if (!el.value) return ["第" + i + "希望の日にちを選んでください。", el]; if (el.value < el.min) return ["第" + i + "希望は " + el.min.replace(/-/g, "/") + " 以降を選んでください。", el]; } return ""; },
+    2: () => { for (const i of [1, 2, 3]) { const el = fm["date" + i]; if (!el.value) return ["第" + i + "希望の日にちを選んでください。", el]; if (el.value < el.min) return ["第" + i + "希望は " + el.min.replace(/-/g, "/") + " 以降を選んでください。", el]; if (new Date(el.value + "T00:00:00").getDay() === 0) return ["日曜日はお休みです。第" + i + "希望は日曜日以外を選んでください。", el]; } return ""; },
     3: () => {
       const L = { name: "お名前", phone: "電話番号", email: "メールアドレス", city: "市町村", address: "ご住所" };
       for (const k in L) { const el = fm[k]; if (!el.value.trim()) return [L[k] + "を入れてください。", el]; }
