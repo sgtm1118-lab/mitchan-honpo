@@ -9,7 +9,7 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0;color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Meiryo",system-ui,sans-serif;font-size:15px;line-height:1.7;
   background:var(--bg) radial-gradient(circle,#e6dfd5 1.4px,transparent 1.6px) 0 0/22px 22px}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 button{font-family:inherit}
 
