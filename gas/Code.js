@@ -27,6 +27,7 @@ function doPost(e) {
   try {
     const d = JSON.parse(e.postData.contents);
     const ss = SpreadsheetApp.getActiveSpreadsheet();
+    if (ss.getSpreadsheetTimeZone() !== "Asia/Tokyo") ss.setSpreadsheetTimeZone("Asia/Tokyo");
     const bs = sheet_(ss, BOOKING_SHEET, BOOKING_HEAD);
     const cs = sheet_(ss, CUSTOMER_SHEET, CUSTOMER_HEAD);
     const now = new Date();
