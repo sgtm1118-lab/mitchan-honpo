@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<link rel="icon" href="data:,">
+<title>みっちゃん本舗宮崎中央店｜宮崎のエアコンクリーニング・ハウスクリーニング</title>
+<meta name="description" content="宮崎のエアコン・ハウスクリーニング。『エアコンクリーニングみっちゃん本舗』のグループ店、みっちゃん本舗宮崎中央店です。作業は代表の橋口弘一が直接うかがいます。料金はすべて税込。">
+<meta name="theme-color" content="#13294b">
+<style>
+:root{
+  color-scheme: light only;
+  --ac:#0f7c74;--ac2:#14a394;--ac-soft:#e7f5f3;--navy:#13294b;--gold:#b8892d;
+  --ink:#1f2933;--ink2:#5f6b76;--ink3:#9aa5af;--line:#e3e8ec;--bg:#e8eef2;--card:#fff;
+  --star:#f2b01e;--ok:#1f8a5b;--ng:#c8402b;
+  --app:480px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Meiryo",system-ui,sans-serif;font-size:15px;line-height:1.75;
+  background:var(--bg) repeating-linear-gradient(135deg,transparent 0 18px,rgba(19,41,75,.035) 18px 19px)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font-family:inherit}
+
+.app{max-width:var(--app);margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 50px rgba(19,41,75,.12);padding-bottom:84px;position:relative;overflow-x:hidden}
+
+.draft-bar{background:#fff7e6;color:#7a5a12;font-size:12px;text-align:center;padding:7px 12px;border-bottom:1px solid #ead9b0;font-weight:700}
+
+/* 上の帯 */
+.bar{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;height:54px;display:flex;align-items:center;gap:10px;padding:0 14px}
+.bar .shop{font-weight:800;font-size:15px;letter-spacing:.04em;text-decoration:none;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .shop small{font-weight:600;color:#9fe3d9;font-size:11px;margin-left:6px;letter-spacing:0}
+.bar .tel{flex:none;display:flex;align-items:center;gap:4px;text-decoration:none;font-size:12px;font-weight:700;color:var(--navy);background:#fff;border-radius:8px;padding:6px 10px}
+
+/* 下の帯（予約ボタン） */
+.cta{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:var(--app);z-index:30;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:8px}
+.btn{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--ac);color:#fff;border:0;border-radius:12px;padding:14px 16px;font-size:16px;font-weight:800;text-decoration:none;cursor:pointer;width:100%;box-shadow:0 4px 0 #0a5d57}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #0a5d57}
+.btn.line{background:#fff;color:var(--ac);border:1.5px solid var(--ac);box-shadow:none}
+.cta .btn{flex:1;padding:13px 8px;font-size:15px}
+
+/* 区切りのあるかたまり */
+.sec{padding:26px 16px}
+.sec + .sec{border-top:1px solid var(--line)}
+.sec.tint{background:#f5f8fa}
+.sec h2{font-size:18px;margin:0 0 14px;font-weight:800;display:flex;align-items:center;gap:8px;color:var(--navy)}
+.sec h2::before{content:"";width:4px;height:18px;border-radius:2px;background:var(--ac);flex:none}
+.muted{color:var(--ink2);font-size:13px}
+.stars{color:var(--star);letter-spacing:1px}
+
+/* トップ */
+.top{background:var(--navy);color:#fff;padding:22px 16px 26px;position:relative;overflow:hidden}
+.top::before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(20,163,148,.35),transparent 70%);top:-150px;right:-120px}
+.top .kicker{position:relative;display:inline-block;font-size:12px;font-weight:700;color:#9fe3d9;border:1px solid rgba(159,227,217,.5);border-radius:999px;padding:2px 10px;margin:0 0 10px}
+.top h1{position:relative;font-size:27px;line-height:1.35;margin:0 0 8px;letter-spacing:.02em}
+.top h1 em{font-style:normal;color:#9fe3d9}
+.top .lead{position:relative;font-size:14px;color:#d3dcea;margin:0 0 16px}
+.top .group-badge{position:relative;display:inline-block;font-size:12px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:3px 10px;margin:0 0 14px;color:#fff}
+.hero-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.hero-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 30%}
+.stats{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
+.stats div{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:10px 6px;text-align:center;font-size:11px;line-height:1.35;color:#d3dcea}
+.stats b{display:block;font-size:20px;color:#fff;line-height:1.2;margin-bottom:2px}
+.stats b small{font-size:12px}
+.stats .stars{font-size:13px}
+
+/* 年末大掃除キャンペーン */
+.campaign{padding:22px 16px 24px;background:linear-gradient(180deg,#fffaf0,#fff3d9)}
+.campaign-inner{border:2px solid var(--gold);border-radius:18px;background:#fff;padding:18px 14px 14px;box-shadow:0 10px 28px rgba(184,137,45,.16);position:relative;overflow:hidden}
+.campaign-inner::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--gold),#e3c26a,var(--gold))}
+.camp-eyebrow{display:flex;justify-content:center;margin:2px 0 8px}
+.camp-eyebrow span{font-size:11px;font-weight:800;letter-spacing:.12em;color:#fff;background:var(--gold);border-radius:999px;padding:3px 12px}
+.campaign h2{margin:0;text-align:center;font-size:22px;line-height:1.35;color:var(--navy);font-weight:900;letter-spacing:.02em}
+.camp-lead{margin:6px 0 16px;text-align:center;font-size:13px;color:var(--ink2)}
+.camp-cards{display:grid;gap:12px}
+.camp-card{border:1px solid #ead9b0;border-radius:14px;padding:14px;background:#fffdf7}
+.camp-card h3{margin:0 0 2px;font-size:17px;line-height:1.45;color:var(--navy);font-weight:800}
+.camp-card h3 .set{font-size:13px;color:var(--gold);font-weight:800;margin-left:4px;white-space:nowrap}
+.camp-normal{margin:8px 0 0;font-size:13px;color:var(--ink2)}
+.camp-normal s{font-weight:700}
+.camp-price{margin:2px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 8px}
+.camp-price .label{font-size:13px;font-weight:800;color:var(--ng)}
+.camp-price .amount{font-size:30px;line-height:1.1;font-weight:900;color:var(--navy);letter-spacing:.01em}
+.camp-price .tax{font-size:12px;font-weight:700;color:var(--ink2)}
+.camp-save{display:inline-block;margin-top:8px;font-size:12px;font-weight:800;color:#7a5a12;background:#fff1c9;border:1px solid #ead9b0;border-radius:999px;padding:2px 10px}
+.camp-card a{display:inline-flex;margin-top:10px;font-size:13px;font-weight:800;color:var(--ac);text-decoration:none}
+.camp-note{margin:12px 2px 0;font-size:12px;color:var(--ink2);text-align:center}
+.camp-opt{margin:10px 0 0;font-size:12px;line-height:1.6;color:var(--ink2)}
+
+.quick{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;background:var(--ac-soft)}
+.quick .p small{display:block;font-size:12px;color:var(--ink2)}
+.quick .p b{font-size:24px;color:var(--navy)}
+.quick .p b small{display:inline;font-size:12px;color:var(--ink2);font-weight:600}
+.quick a{flex:none;width:auto;padding:12px 18px;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;padding:12px 16px 0}
+.tags span{font-size:12px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.tags span::before{content:"✓ ";color:var(--ac)}
+
+/* 料金 */
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pgrid a{display:flex;flex-direction:column;gap:2px;border:1px solid var(--line);border-radius:12px;padding:12px;text-decoration:none;background:#fff;min-width:0}
+.pgrid a.wide{grid-column:1/-1}
+.pgrid .n{font-weight:700;font-size:14px;line-height:1.4}
+.pgrid .d{font-size:11px;color:var(--ink2);line-height:1.4}
+.pgrid .p{margin-top:auto;padding-top:6px;font-weight:800;font-size:17px;color:var(--navy)}
+.pgrid .p small{font-size:11px;color:var(--ink2);font-weight:600}
+.pgrid .go{font-size:11px;color:var(--ac);font-weight:700}
+.pgroup{font-size:13px;font-weight:800;color:var(--ink2);margin:14px 0 8px}
+.pgroup:first-child{margin-top:0}
+
+/* 作業事例 */
+.case-list{display:grid;gap:14px}
+.case-list figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.case-list img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.case-list figcaption{padding:10px 14px;font-size:13px;font-weight:700;color:var(--navy)}
+
+/* ビフォーアフター比較スライド */
+.ba-list{display:grid;gap:20px}
+.ba-case h3{margin:0 0 8px;font-size:15px;font-weight:800;color:var(--navy)}
+.ba-case h3 .no{color:var(--ac);margin-right:6px}
+.ba{--pos:50%;position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;aspect-ratio:4/3;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:ew-resize}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.ba .ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.ba-tag{position:absolute;top:10px;z-index:3;font-size:11px;font-weight:800;letter-spacing:.06em;color:#fff;border-radius:999px;padding:3px 10px;pointer-events:none}
+.ba-tag.before{left:10px;background:rgba(19,41,75,.78)}
+.ba-tag.after{right:10px;background:var(--ac)}
+.ba-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 8px rgba(19,41,75,.45);z-index:2;pointer-events:none}
+.ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#fff;box-shadow:0 2px 10px rgba(19,41,75,.35);display:grid;place-items:center;color:var(--navy)}
+.ba-range{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;z-index:4;pointer-events:auto;cursor:ew-resize;touch-action:pan-y;-webkit-appearance:none;appearance:none;background:transparent}
+.ba.no-before .ba-before,.ba.no-before .ba-handle,.ba.no-before .ba-tag.before{display:none}
+.ba-range:focus-visible{opacity:1;outline:2px solid var(--ac);outline-offset:-2px}
+.ba-range:focus-visible::-webkit-slider-thumb{-webkit-appearance:none;width:38px;height:38px}
+.ba-hint{font-size:12px;color:var(--ink2);margin:0 0 14px}
+
+/* 店主 */
+.owner{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.owner img{width:92px;height:92px;border-radius:16px;object-fit:cover;object-position:center 20%;flex:none}
+.owner b{display:block;font-size:18px;color:var(--navy)}
+.owner span{font-size:12px;color:var(--ink2);line-height:1.5;display:block}
+.owner-body{font-size:14px;margin:0}
+.group-note{margin-top:12px;background:#fff;border-left:4px solid var(--ac);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14px}
+.group-note b{display:block;color:var(--navy);margin-bottom:4px}
+
+/* 口コミ */
+.rv-sum{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.rv-sum .big{font-size:40px;font-weight:800;color:var(--navy);line-height:1}
+.rv-sum .muted{line-height:1.5}
+.rv-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff;font-size:14px}
+.rv-card p{margin:0}
+
+/* 流れ */
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;list-style:none;margin:0;padding:0;counter-reset:f}
+.flow li{counter-increment:f;text-align:center;font-size:12px;line-height:1.4;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 4px}
+.flow li::before{content:counter(f);display:grid;place-items:center;width:26px;height:26px;margin:0 auto 6px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:13px}
+.flow b{display:block;font-size:13px;color:var(--navy)}
+.flow-note{font-size:13px;color:var(--ink2);margin:10px 0 0}
+
+/* お店の情報 */
+.contact{display:grid;gap:8px;margin-bottom:14px}
+.contact a{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;background:#fff;gap:10px}
+.contact a b{font-size:17px;color:var(--navy);white-space:nowrap}
+.contact a span{font-size:12px;color:var(--ink2)}
+/* 予約フォーム */
+.form-frame{width:100%;height:780px;border:1px solid var(--line);border-radius:14px;background:#fff;display:block}
+.form-open{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;border:1.5px solid var(--ac);color:var(--ac);border-radius:12px;padding:12px 16px;font-size:15px;font-weight:800;text-decoration:none;background:#fff}
+dl.info{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:8px 10px;margin:0;font-size:14px}
+dl.info dt{color:var(--ink2)}
+dl.info dd{margin:0}
+.foot{padding:20px 16px;text-align:center;font-size:12px;color:var(--ink3)}
+.foot .draft-note{margin-top:8px}
+
+.side{display:none}
+@media(min-width:960px){
+  .side{display:block;position:fixed;top:50%;transform:translateY(-50%);right:calc(50% + var(--app)/2 + 32px);width:220px;background:var(--navy);color:#fff;border-radius:16px;padding:20px;font-size:13px;text-align:center}
+  .side b{display:block;font-size:15px;margin-bottom:4px}
+  .side .num{display:block;font-size:20px;font-weight:800;color:#9fe3d9;text-decoration:none;margin:8px 0 0}
+  .side .muted{color:#b9c6d6}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="bar">
+    <a class="shop" href="#">みっちゃん本舗<small>宮崎中央店</small></a>
+    <a class="tel" href="tel:08064554260">☎ 電話する</a>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="top">
+    <span class="kicker">宮崎のエアコン・ハウスクリーニング</span>
+    <h1>汚れの落ち方が、<br><em>ちがう。</em></h1>
+    <p class="lead">「エアコンクリーニングみっちゃん本舗」のグループ店です。作業は代表の橋口弘一が直接うかがいます。</p>
+    <div class="hero-photo">
+      <img src="assets/hero-work.jpg" alt="エアコンクリーニングの作業をするスタッフ">
+    </div>
+    <div class="stats">
+      <div><b>★5.0</b>Google口コミ<br>65件</div>
+      <div><b>1〜3<small>位</small></b>「宮崎市 エアコン<br>クリーニング」検索</div>
+      <div><b style="font-size:16px;padding-top:3px">代表が</b>直接訪問<br>橋口弘一</div>
+    </div>
+  </section>
+
+  <!-- 年末大掃除キャンペーン -->
+  <section class="campaign" aria-label="年末大掃除キャンペーン">
+    <div class="campaign-inner">
+      <div class="camp-eyebrow"><span>お得なセット価格</span></div>
+      <h2>年末大掃除キャンペーン</h2>
+      <p class="camp-lead">気になる水回りを、まとめてきれいに。</p>
+      <div class="camp-cards">
+        <article class="camp-card">
+          <h3>キッチン・レンジフード<span class="set">セット</span></h3>
+          <p class="camp-normal">通常価格 <s>¥35,200</s>（税込）のところ</p>
+          <p class="camp-price"><span class="label">割引セット価格</span><span class="amount">¥29,700</span><span class="tax">税込</span></p>
+          <span class="camp-save">通常より ¥5,500 お得</span><br>
+          <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">このセットで予約する →</a>
+        </article>
+        <article class="camp-card">
+          <h3>浴室・洗面台・トイレ<span class="set">セット</span></h3>
+          <p class="camp-normal">通常価格 <s>¥37,400</s>（税込）のところ</p>
+          <p class="camp-price"><span class="label">割引セット価格</span><span class="amount">¥33,000</span><span class="tax">税込</span></p>
+          <span class="camp-save">通常より ¥4,400 お得</span>
+          <p class="camp-opt">※浴室鏡水垢除去、エプロン内部洗浄、浴室乾燥機分解、風呂釜洗浄は別料金オプションになります。</p>
+          <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">このセットで予約する →</a>
+        </article>
+      </div>
+      <p class="camp-note">料金はすべて税込です。</p>
+    </div>
+  </section>
+
+  <div class="quick">
+    <div class="p"><small>壁掛けエアコン 1台</small><b>¥7,700<small>（税込）</small></b></div>
+    <a class="btn" href="#price">料金を見る</a>
+  </div>
+  <div class="tags"><span>料金はすべて税込</span><span>代表が直接うかがいます</span></div>
+
+  <!-- 料金 -->
+  <section class="sec" id="price">
+    <h2>料金</h2>
+    <p class="pgroup">エアコン</p>
+    <div class="pgrid">
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">壁掛けエアコン</span>
+        <span class="p">¥7,700<small> / 台</small></span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">おそうじ機能付き</span>
+        <span class="d">壁掛けエアコンに追加</span>
+        <span class="p">＋¥6,600<small> / 台</small></span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">完全分解オプション</span>
+        <span class="p">¥6,600<small> / 台</small></span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">エアコン消臭コート</span>
+        <span class="p">¥2,200<small> / 台</small></span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">ドレンパン分解清掃</span>
+        <span class="p">¥3,300<small> / 台</small></span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+    </div>
+    <p class="muted" style="margin:10px 0 0">※おそうじ機能付きの場合：壁掛け ¥7,700＋¥6,600＝合計 ¥14,300／台</p>
+
+    <p class="pgroup">水回り・その他</p>
+    <div class="pgrid">
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">浴室</span>
+        <span class="p">¥19,800</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">浴室鏡</span>
+        <span class="p">¥5,500</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">浴室乾燥機・換気扇</span>
+        <span class="p">¥5,500</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">浴室エプロン内部</span>
+        <span class="p">¥3,300</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">レンジフード・プロペラ換気扇</span>
+        <span class="p">¥16,500</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">キッチン</span>
+        <span class="p">¥18,700</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">洗面台</span>
+        <span class="p">¥8,800</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">トイレ</span>
+        <span class="p">¥8,800</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">窓・サッシ</span>
+        <span class="p">¥11,000</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+      <a href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">
+        <span class="n">ベランダ・バルコニー</span>
+        <span class="p">¥11,000</span>
+        <span class="go">このメニューで予約 →</span>
+      </a>
+    </div>
+    <p class="muted" style="margin:12px 0 0">料金はすべて税込。押すと、予約フォームに進めます。</p>
+  </section>
+
+  <!-- 作業事例 -->
+  <section class="sec tint">
+    <h2>作業事例</h2>
+    <div class="case-list">
+      <figure>
+        <img src="assets/work.jpg" alt="エアコンを分解してクリーニングする作業の様子">
+        <figcaption>エアコンクリーニングの作業風景</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/bath.jpg" alt="クリーニング後の浴室">
+        <figcaption>浴室クリーニング</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/hood.jpg" alt="レンジフードのクリーニング">
+        <figcaption>レンジフードクリーニング</figcaption>
+      </figure>
+    </div>
+    <p class="muted" style="margin:10px 0 0">みっちゃん本舗宮崎中央店が実際に作業した写真です。</p>
+  </section>
+
+  <!-- ビフォーアフター -->
+  <section class="sec">
+    <h2>ビフォーアフター</h2>
+    <p class="ba-hint">浴室クリーニングの作業前後です。写真の上で指（マウス）を左右に動かすと、ビフォーとアフターを比べられます。</p>
+    <div class="ba-list">
+      <div class="ba-case">
+        <h3><span class="no">事例1</span>浴室クリーニング（浴槽）</h3>
+        <div class="ba">
+          <img src="assets/bath1-after.jpg" alt="浴室クリーニング後の浴槽">
+          <img class="ba-before" src="assets/bath1-before.jpg" alt="浴室クリーニング前の浴槽。水垢と黄ばみが付着している">
+          <span class="ba-tag before">ビフォー</span>
+          <span class="ba-tag after">アフター</span>
+          <div class="ba-handle"><span class="ba-knob"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M5 1 1 6l4 5M13 1l4 5-4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="浴室クリーニング（浴槽）のビフォーアフター比較">
+        </div>
+      </div>
+      <div class="ba-case">
+        <h3><span class="no">事例2</span>浴室クリーニング（洗い場）</h3>
+        <div class="ba">
+          <img src="assets/bath2-after.jpg" alt="浴室クリーニング後の洗い場">
+          <img class="ba-before" src="assets/bath2-before.jpg" alt="浴室クリーニング前の洗い場。床に黄ばみと汚れが広がっている">
+          <span class="ba-tag before">ビフォー</span>
+          <span class="ba-tag after">アフター</span>
+          <div class="ba-handle"><span class="ba-knob"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M5 1 1 6l4 5M13 1l4 5-4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="浴室クリーニング（洗い場）のビフォーアフター比較 1">
+        </div>
+      </div>
+      <div class="ba-case">
+        <h3><span class="no">事例3</span>浴室クリーニング（洗い場）</h3>
+        <div class="ba">
+          <img src="assets/bath3-after.jpeg" alt="浴室クリーニング後の洗い場">
+          <img class="ba-before" src="assets/bath3-before.jpeg" alt="浴室クリーニング前の洗い場。床に黄ばみと黒ずみが付着している">
+          <span class="ba-tag before">ビフォー</span>
+          <span class="ba-tag after">アフター</span>
+          <div class="ba-handle"><span class="ba-knob"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M5 1 1 6l4 5M13 1l4 5-4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="1" aria-label="浴室クリーニング（洗い場）のビフォーアフター比較 2">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 代表のこと -->
+  <section class="sec">
+    <h2>代表のこと</h2>
+    <div class="owner">
+      <img src="assets/owner.jpg" alt="代表 橋口弘一">
+      <div><b>橋口 弘一</b><span>みっちゃん本舗宮崎中央店 代表<br>「エアコンクリーニングみっちゃん本舗」グループ店</span></div>
+    </div>
+    <p class="owner-body">18歳から清掃業に携わり、父のもとで修業。その後、東京でフランチャイズ店の店長を約3年務めました。地元・宮崎で、安心してお任せいただけるお掃除をお届けします。</p>
+    <div class="group-note"><b>グループ店です</b>みっちゃん本舗宮崎中央店は、エアコンクリーニングみっちゃん本舗のグループ店です。ご予約から当日の作業まで、代表の橋口弘一が直接うかがいます。</div>
+  </section>
+
+  <!-- お客さまの声 -->
+  <section class="sec tint">
+    <h2>お客さまの声</h2>
+    <div class="rv-sum"><span class="big">5.0</span><div class="muted"><span class="stars">★★★★★</span><br>Googleの口コミ 65件</div></div>
+    <div class="rv-card">
+      <p>Google口コミで★5.0（65件）の評価をいただいています。「宮崎市 エアコンクリーニング」の検索でも1〜3位に表示されています。最新の口コミはGoogleマップでご確認いただけます。</p>
+    </div>
+  </section>
+
+  <!-- ご依頼の流れ -->
+  <section class="sec">
+    <h2>ご依頼の流れ</h2>
+    <ol class="flow">
+      <li><b>ネット予約</b>メニューと希望日を送る</li>
+      <li><b>日程の連絡</b>こちらから連絡して決定</li>
+      <li><b>作業</b>代表が直接うかがいます</li>
+      <li><b>お支払い</b>作業後にご精算</li>
+    </ol>
+    <p class="flow-note">お電話でのご依頼も受け付けています。</p>
+  </section>
+
+  <!-- 予約フォーム -->
+  <section class="sec" id="yoyaku">
+    <h2>予約フォーム</h2>
+    <p class="muted" style="margin:0 0 12px">メニューとご希望の日時を選んで送信してください。送信のあと、お店から日程の連絡をします。</p>
+    <a class="btn" href="https://script.google.com/macros/s/AKfycbx6lLaImXzdtdt5HpGz6gQwf5Ahwu_M7hQm8KqdV3SmuAYnm9X4rSB6GlWOnzZC0Cl9/exec" target="_blank" rel="noopener">予約フォームを開く</a>
+  </section>
+
+  <!-- お店の情報 -->
+  <section class="sec tint">
+    <h2>お店の情報</h2>
+    <div class="contact">
+      <a href="tel:08064554260"><span>お電話でのご予約・お問い合わせ</span><b>080-6455-4260</b></a>
+      <a href="mailto:osouji225@gmail.com"><span>メール</span><b style="font-size:14px">osouji225@gmail.com</b></a>
+    </div>
+    <dl class="info">
+      <dt>店名</dt><dd>みっちゃん本舗宮崎中央店</dd>
+      <dt>代表</dt><dd>橋口 弘一</dd>
+      <dt>住所</dt><dd>〒880-0021<br>宮崎市清水1丁目13-25 アルテマイスター清水803</dd>
+      <dt>電話</dt><dd>080-6455-4260</dd>
+      <dt>メール</dt><dd>osouji225@gmail.com</dd>
+      <dt>営業時間</dt><dd>8:00〜18:00（日曜定休）</dd>
+      <dt>対応エリア</dt><dd>宮崎市・都城市・日向市 ほか</dd>
+    </dl>
+  </section>
+
+  <p class="foot">© みっちゃん本舗宮崎中央店</p>
+
+  <div class="cta">
+    <a class="btn" href="#yoyaku">ネットで予約する</a>
+    <a class="btn line" href="tel:08064554260">電話する</a>
+  </div>
+</div>
+
+<aside class="side">
+  <b>お電話でも受付中</b>
+  <span class="muted">代表 橋口弘一が対応します</span>
+  <a class="num" href="tel:08064554260">080-6455-4260</a>
+  <span class="muted">8:00〜18:00（日曜定休）</span>
+</aside>
+<script>
+document.querySelectorAll('.ba').forEach(function(box){
+  var range = box.querySelector('.ba-range');
+  function update(){ box.style.setProperty('--pos', range.value + '%'); }
+  range.addEventListener('input', update);
+  function posFromEvent(e){
+    var r = box.getBoundingClientRect();
+    if (!r.width) return;
+    var p = (e.clientX - r.left) / r.width * 100;
+    p = Math.max(0, Math.min(100, p));
+    range.value = Math.round(p);
+    update();
+  }
+  var dragging = false;
+  box.addEventListener('pointerdown', function(e){
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    dragging = true;
+    try { box.setPointerCapture(e.pointerId); } catch (err) {}
+    posFromEvent(e);
+  });
+  box.addEventListener('pointermove', function(e){ if (dragging) posFromEvent(e); });
+  box.addEventListener('pointerup', function(){ dragging = false; });
+  box.addEventListener('pointercancel', function(){ dragging = false; });
+  var beforeImg = box.querySelector('.ba-before');
+  var afterImg = box.querySelector('img:not(.ba-before)');
+  function dropBefore(){ box.classList.add('no-before'); range.value = 0; update(); }
+  if (beforeImg){
+    if (beforeImg.complete && beforeImg.naturalWidth === 0) dropBefore();
+    else beforeImg.addEventListener('error', dropBefore);
+  }
+  function dropBox(){ box.style.display = 'none'; }
+  if (afterImg){
+    if (afterImg.complete && afterImg.naturalWidth === 0) dropBox();
+    else afterImg.addEventListener('error', dropBox);
+  }
+  update();
+});
+</script>
+</body>
+</html>
