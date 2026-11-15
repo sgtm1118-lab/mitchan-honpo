@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>プロ向け技術研修 | エアコンクリーニングみっちゃん本舗 — 試作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#ffffff; --bg2:#f3f5f6; --ink:#13212b; --ink2:#3d4f5c; --muted:#6b7d89;
+--line:#dde4e8; --navy:#0d1f2d; --navy2:#122e42; --accent:#e4571d; --accent-d:#c7430f;
+--teal:#0e7c86; --gold:#c99a2b; --card:#ffffff; --chip:#eef3f5;
+--shadow:0 10px 30px rgba(13,31,45,.10);
+}
+@media (prefers-color-scheme: dark){
+:root{ --bg:#0c141a; --bg2:#101d26; --ink:#eef3f5; --ink2:#c3d0d8; --muted:#93a5b1; --line:#243642; --card:#13242f; --chip:#1a2f3d; --shadow:0 10px 30px rgba(0,0,0,.35);}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important}}
+body{margin:0;font-family:"Noto Sans JP",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.serif{font-family:"Noto Serif JP",serif}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px}
+.brand{font-weight:900;font-size:14px;letter-spacing:.02em;line-height:1.3}
+.brand small{display:block;font-weight:500;color:var(--muted);font-size:11px}
+.top-cta{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:#fff;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;text-decoration:none;white-space:nowrap}
+.top-cta:hover{background:var(--accent-d)}
+
+/* hero */
+.hero{background:var(--navy);color:#eef4f6;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:64px solid rgba(14,124,134,.28)}
+.hero::before{content:"";position:absolute;left:-80px;bottom:-160px;width:340px;height:340px;border-radius:50%;border:48px solid rgba(228,87,29,.18)}
+.hero-in{position:relative;z-index:1;padding:56px 20px 0}
+.hero-tag{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 14px;font-size:13px;font-weight:700;letter-spacing:.06em}
+.hero h1{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(34px,7.2vw,64px);line-height:1.22;margin:20px 0 6px;letter-spacing:.01em}
+.hero h1 .big{font-size:1.28em;color:#ffb03a}
+.hero h1 .u{border-bottom:4px solid var(--accent);padding-bottom:2px}
+.hero-sub{font-size:clamp(16px,2.6vw,20px);font-weight:700;color:#d7e5ea;max-width:720px;margin:14px 0 0}
+.hero-desc{color:#a9bfc9;max-width:680px;margin:12px 0 0;font-size:15px}
+.hero-cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:900;text-decoration:none;border-radius:10px;padding:16px 26px;font-size:16px}
+.btn-main{background:var(--accent);color:#fff;box-shadow:0 8px 22px rgba(228,87,29,.4)}
+.btn-main:hover{background:var(--accent-d)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:#fff}
+.btn-ghost:hover{border-color:#fff}
+.hero-note{font-size:13px;color:#8fa6b1;padding-bottom:26px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.18);position:relative;z-index:1}
+.stat{padding:18px 14px;text-align:center;border-left:1px solid rgba(255,255,255,.12)}
+.stat:first-child{border-left:none}
+.stat b{display:block;font-size:clamp(22px,4vw,34px);font-weight:900;color:#fff;line-height:1.2}
+.stat b span{font-size:.55em;color:#ffb03a}
+.stat small{color:#9db4bf;font-size:12px;font-weight:700;letter-spacing:.04em}
+
+/* sections */
+section{padding:64px 0}
+.alt{background:var(--bg2)}
+.sec-label{font-size:13px;font-weight:900;color:var(--accent);letter-spacing:.14em}
+h2{font-family:"Noto Serif JP",serif;font-size:clamp(26px,4.6vw,38px);font-weight:900;line-height:1.35;margin:8px 0 14px}
+.lead{color:var(--ink2);max-width:760px}
+
+/* reality - franchise story right after hero */
+.reality{background:var(--bg)}
+.reality-intro{max-width:820px;color:var(--ink2);font-size:16.5px}
+.reality-intro p{margin:0 0 14px}
+.reality-intro .star{color:var(--accent);font-weight:900}
+.reality-questions{margin:28px 0 0;display:grid;gap:14px}
+.rq{background:var(--navy);color:#fff;border-radius:14px;padding:22px 24px;display:flex;gap:14px;align-items:flex-start}
+.rq .star{color:#ffb03a;font-size:22px;line-height:1.2;flex:0 0 auto}
+.rq p{margin:0;font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(19px,3.4vw,26px);line-height:1.45}
+.reality-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px;list-style:none;padding:0}
+.reality-list li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-weight:700;display:flex;gap:10px;align-items:flex-start;font-size:15px;line-height:1.6}
+.reality-list li::before{content:"▫";color:var(--accent);font-weight:900;flex:0 0 auto}
+.reality-list li.last{grid-column:1/-1;background:#fff1ec;border-color:#f3c8b0;color:#7a2b0d}
+@media (prefers-color-scheme: dark){.reality-list li.last{background:#2a1a12;border-color:#5a3320;color:#ffb9a0}}
+.reality-story{margin-top:28px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:26px 28px}
+.reality-story p{margin:0 0 14px;color:var(--ink2)}
+.reality-story p:last-child{margin-bottom:0}
+.reality-story b{color:var(--ink)}
+.reality-story .big-num{font-family:"Noto Serif JP",serif;font-size:clamp(22px,3.6vw,30px);font-weight:900;color:var(--ink);line-height:1.4;margin-bottom:12px}
+.reality-story .big-num em{font-style:normal;color:var(--accent)}
+.reality-answer{margin-top:22px;border:2px solid var(--navy);border-radius:16px;padding:26px 28px;background:var(--card)}
+.reality-answer .note{font-size:17px;font-weight:900;color:#d92d20;background:#fef0ee;display:block;padding:12px 16px;border-radius:10px;line-height:1.65;border:1.5px solid #f0a9a0;letter-spacing:.01em}
+@media (prefers-color-scheme: dark){.reality-answer .note{color:#ff7a6b;background:#3a1a14;border-color:#7a3a30}}
+.reality-answer h3{font-family:"Noto Serif JP",serif;font-size:clamp(20px,3.4vw,27px);line-height:1.45;margin:14px 0 10px}
+.reality-answer p{margin:0 0 12px;color:var(--ink2)}
+.reality-answer .weapon{font-size:18px;font-weight:900;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:7px;text-decoration-skip-ink:auto;line-height:2}
+.reality-close{margin-top:22px;text-align:center;padding:28px 20px 4px}
+.reality-close .q{font-family:"Noto Serif JP",serif;font-weight:900;font-size:clamp(20px,3.8vw,28px);line-height:1.5}
+.reality-close .ans{margin:18px auto 0;max-width:760px;font-size:17px;line-height:1.85;color:var(--ink2)}
+.reality-close .ans b{color:var(--ink)}
+.reality-close .ans .highlight{color:var(--accent);font-weight:900;font-size:1.12em}
+
+/* pains */
+.pains{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:28px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;font-weight:700;display:flex;gap:12px;align-items:flex-start}
+.pain i{font-style:normal;color:var(--accent);font-weight:900;font-size:20px;line-height:1.4}
+.resolve{margin-top:26px;background:var(--navy);color:#eaf2f5;border-radius:14px;padding:26px 28px}
+.resolve b{color:#ffb03a}
+
+/* compare */
+.table-scroll{overflow-x:auto;margin-top:26px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{background:var(--navy);color:#fff;font-size:14px}
+thead th.hl{background:var(--accent)}
+tbody th{font-weight:900;background:var(--chip);width:130px}
+td.hl{background:color-mix(in srgb, var(--accent) 7%, var(--card));font-weight:700}
+tr:last-child th,tr:last-child td{border-bottom:none}
+
+/* techniques */
+.tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.tech{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.tech .num{font-family:"Noto Serif JP",serif;font-size:28px;font-weight:900;color:var(--teal);line-height:1}
+.tech h3{margin:10px 0 6px;font-size:17px}
+.tech p{margin:0;color:var(--ink2);font-size:14px}
+.cases{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px}
+.cases span{background:var(--chip);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:700}
+.photo-note{margin-top:18px;border:1.5px dashed var(--muted);border-radius:12px;padding:16px 18px;color:var(--ink2);font-size:14px}
+
+/* curriculum tabs */
+.tabs{display:flex;gap:8px;margin:26px 0 0;flex-wrap:wrap}
+.tab{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:900;padding:10px 22px;border-radius:999px;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.day-panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;margin-top:16px}
+.day-panel h3{margin:0 0 4px;font-size:19px}
+.day-panel .time{color:var(--accent);font-weight:900;font-size:14px}
+.steps{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:0}
+.steps li{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.steps li:last-child{border-bottom:none}
+.steps b{flex:0 0 34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px}
+.steps div{padding-top:3px}
+
+/* profile */
+.profile{display:grid;grid-template-columns:340px 1fr;gap:28px;margin-top:28px;align-items:start}
+.who{background:var(--navy);color:#eaf2f5;border-radius:16px;padding:28px}
+.who .role{color:#ffb03a;font-weight:900;font-size:13px;letter-spacing:.1em}
+.who h3{font-family:"Noto Serif JP",serif;font-size:30px;margin:8px 0 2px;color:#fff}
+.who p{color:#a9bfc9;font-size:14px;margin:6px 0 0}
+.who ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:8px;font-size:14px}
+.who li{border-top:1px solid rgba(255,255,255,.15);padding-top:8px}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:flex;gap:16px;padding:0 0 20px;position:relative}
+.timeline li::before{content:"";position:absolute;left:52px;top:26px;bottom:0;width:2px;background:var(--line)}
+.timeline li:last-child::before{display:none}
+.timeline .yr{flex:0 0 44px;font-weight:900;color:var(--accent);font-size:14px;padding-top:2px;text-align:right}
+.timeline .dot{flex:0 0 14px;height:14px;border-radius:50%;background:var(--accent);margin-top:6px;position:relative;z-index:1}
+.timeline p{margin:0;color:var(--ink2);font-size:15px}
+.timeline p b{color:var(--ink)}
+.clients{margin-top:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;font-size:14px}
+.clients b{display:block;margin-bottom:6px}
+.clients span{color:var(--ink2)}
+
+/* voice */
+.voice{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--gold);border-radius:14px;padding:28px;margin-top:26px;box-shadow:var(--shadow)}
+.voice .from{font-weight:900;color:var(--gold);font-size:14px;letter-spacing:.06em}
+.voice blockquote{margin:12px 0 0;font-size:16px}
+.voice blockquote p{margin:0 0 10px}
+.voice .strong{font-weight:900;font-size:18px}
+.support{margin-top:16px;display:flex;gap:14px;align-items:flex-start;background:color-mix(in srgb, var(--teal) 9%, var(--card));border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.support .ic{flex:0 0 44px;height:44px;border-radius:12px;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px}
+.support p{margin:2px 0 0;color:var(--ink2);font-size:14px}
+
+/* products */
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.prod{background:var(--navy);color:#eaf2f5;border-radius:16px;padding:26px}
+.prod h3{margin:0;font-family:"Noto Serif JP",serif;font-size:24px;color:#fff}
+.prod .use{color:#ffb03a;font-weight:900;font-size:14px}
+.prod .price{font-size:30px;font-weight:900;color:#fff;margin:10px 0 0}
+.prod .price small{font-size:13px;color:#9db4bf}
+.prod p{color:#a9bfc9;font-size:14px;margin:8px 0 0}
+.prod .pad{margin-top:12px;border-top:1px solid rgba(255,255,255,.18);padding-top:10px;font-size:14px}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;align-items:stretch}
+.course{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column}
+.course.hot{border:2px solid var(--accent);box-shadow:var(--shadow);position:relative}
+.course .badge{position:absolute;top:-14px;left:24px;background:var(--accent);color:#fff;font-size:12px;font-weight:900;padding:4px 12px;border-radius:999px;letter-spacing:.06em}
+.course h3{margin:0;font-size:20px;line-height:1.5}
+.course .days{color:var(--teal);font-weight:900;font-size:14px}
+.course .amount{font-size:38px;font-weight:900;margin:12px 0 0;line-height:1.2}
+.course .amount small{font-size:14px;color:var(--muted);font-weight:700}
+.course ul{list-style:none;padding:0;margin:16px 0 22px;display:grid;gap:8px;font-size:14.5px;color:var(--ink2)}
+.course ul li{padding-left:22px;position:relative}
+.course ul li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:900}
+.course .btn{margin-top:auto;width:100%}
+.course .fine{font-size:12.5px;color:var(--muted);margin-top:12px}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:var(--navy2)}
+
+/* faq */
+.faq{margin-top:24px;display:grid;gap:10px}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:12px}
+.faq-q{width:100%;text-align:left;background:none;border:none;font:inherit;font-weight:900;padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;color:var(--ink)}
+.faq-q .mark{color:var(--accent);font-size:20px;line-height:1}
+.faq-a{display:none;padding:0 20px 18px;color:var(--ink2);font-size:15px}
+.faq-item.open .faq-a{display:block}
+
+/* impact note */
+.impact{background:var(--navy);color:#dbe7ec;border-radius:16px;padding:28px;margin-top:8px}
+.impact h3{color:#fff;margin:0 0 10px;font-size:19px}
+.impact ul{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
+.impact b{color:#ffb03a}
+
+/* final cta */
+.final{text-align:center}
+.final h2{margin-bottom:8px}
+.final p{color:var(--ink2);max-width:640px;margin:0 auto}
+.final .btn{margin-top:24px}
+footer{border-top:1px solid var(--line);padding:28px 0 90px;color:var(--muted);font-size:13px}
+footer b{color:var(--ink)}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:color-mix(in srgb, var(--navy) 96%, transparent);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;justify-content:center}
+.sticky-cta .txt{color:#dbe7ec;font-size:13px;font-weight:700;line-height:1.4}
+.sticky-cta .txt b{color:#fff;font-size:15px}
+.sticky-cta .btn{padding:12px 22px;font-size:15px;flex:0 0 auto}
+
+@media (max-width:820px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.stat:nth-child(3){border-left:none}
+.stat{border-top:1px solid rgba(255,255,255,.12)}
+.stat:nth-child(-n+2){border-top:none}
+.pains,.tech-grid,.prod-grid,.price-grid,.reality-list{grid-template-columns:1fr}
+.reality-list li.last{grid-column:auto}
+.rq{padding:18px}
+.reality-story,.reality-answer{padding:20px}
+.profile{grid-template-columns:1fr}
+section{padding:48px 0}
+.sticky-cta .txt{display:none}
+.sticky-cta .btn{width:100%}
+.top-cta{padding:8px 12px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+<div class="wrap topbar-in">
+<div class="brand">エアコンクリーニング みっちゃん本舗<small>プロ向け技術研修 ｜ 宮崎</small></div>
+<a class="top-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdnxOjDKEZoHRGClzOUTVVw3HMMaDBJn0lXJHrFzw92GLUamg/viewform" target="_blank" rel="noopener">研修に申し込む</a>
+</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+<div class="wrap hero-in">
+<span class="hero-tag">完全マンツーマン実技研修 ｜ 宮崎・空室マンションで実習</span>
+<h1>フランチャイズ研修<br><span class="big">30〜50日分</span>を、<br><span class="u">最短2日</span>で。</h1>
+<p class="hero-sub">元おそうじ本舗 上級技術アドバイザーが直接教える、同等以上の「稼ぐ技術」。</p>
+<p class="hero-desc">見るだけ・聞くだけの研修ではありません。実際の汚れた空室で、素材判断・洗剤選定・研磨テクニックまで手を動かして身につけます。講師は、加盟店初の上級技術アドバイザーとして全国の加盟店を指導した橋口 淳（業界歴18年）です。</p>
+<div class="hero-cta-row">
+<a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSdnxOjDKEZoHRGClzOUTVVw3HMMaDBJn0lXJHrFzw92GLUamg/viewform" target="_blank" rel="noopener">2日間 上級研修に申し込む →</a>
+<a class="btn btn-ghost" href="#courses">コースと料金を見る</a>
+</div>
+<p class="hero-note">対象：プロのハウスクリーニング業者 ／ 1開催につき受講者1名のみ</p>
+</div>
+<div class="wrap">
+<div class="stats">
+<div class="stat"><b>18<span>年</span></b><small>講師の業界歴</small></div>
+<div class="stat"><b>2<span>日</span></b><small>最短ルートの実技研修</small></div>
+<div class="stat"><b>約30<span>名</span></b><small>2025〜2026年に受講したプロ</small></div>
+<div class="stat"><b>1<span>年</span></b><small>受講後のLINEサポート</small></div>
+</div>
+</div>
+</div>
+
+<!-- REALITY / FRANCHISE STORY -->
+<section class="reality">
+<div class="wrap">
+<div class="sec-label">フランチャイズの実態 ― 講師・橋口 淳より</div>
+<h2>長い研修の先に待っていたのは、<br>独りぼっちの現場でした</h2>
+
+<div class="reality-intro">
+<p><span class="star">★</span> どれだけ長期間何日も研修をしても、研修中は仲間と一緒に過ごす為、必死に頑張りモチベーションも上がります。</p>
+<p>ただ長期研修が終わり、各自地元に帰郷すれば独りぼっち。仲間はいないし、仕事を受注しても、ありきたりな研修を受けている為、肝心な汚れとの向き合い方が分からない。洗剤を多用し、無駄にまた購入をしないといけない。</p>
+</div>
+
+<div class="reality-questions">
+<div class="rq"><span class="star">★</span><p>何の為の研修だったのでしょう？</p></div>
+<div class="rq"><span class="star">★</span><p>開業費用＋研修時の宿泊費＋食費、<br>いくらかかりますか？</p></div>
+</div>
+
+<ul class="reality-list">
+<li>モチベーションも下がる。</li>
+<li>誰も助けてくれない</li>
+<li>売上から経費ばかりかかる</li>
+<li>稼げると思ってフランチャイズに加盟したが儲からない</li>
+<li>ロイヤリティの支払いが重くのしかかる</li>
+<li>作業のクオリティが上がらない為、お客様からのクレームが増える</li>
+<li class="last">最終的には開業費用の借金を抱えたまま廃業</li>
+</ul>
+
+<div class="reality-story">
+<p class="big-num">以上がフランチャイズの実態です。<br>2009年、約<em>100店舗</em>が開業して、1年後に生き残ったのは約<em>10店舗</em>でした。</p>
+<p>私が開業した2009年は、約100店舗開業して、1年後に生き残った加盟店は約10店舗でした。私は幸いその10店舗の中に生き残りました。<b>フランチャイズに15年加盟してきた私だから、フランチャイズの良いところも、悪いところもはっきり言えます。</b></p>
+<p>フランチャイズを否定する訳ではありません。看板をうまく利用する方もいらっしゃいます。やり方は自由ですが、あまりにも脱落者が多いのは否めません。</p>
+</div>
+
+<div class="reality-answer">
+<span class="note">※ 実際に私の研修受講者の7割は、現在フランチャイズ加盟店として活動されている方々です</span>
+<h3>なぜフランチャイズに加盟しているのに、<br>わざわざ宮崎まで私の研修を受けに来られるのか？</h3>
+<p>答えは明白です。</p>
+<p><span class="weapon">汚れに対して、必要な洗剤や資機材＝武器が無いからです。</span></p>
+<p>極端な例えですが、武器を持たずに戦争に行くようなものです。だから何日研修しても、お金と時間が無駄なんです。</p>
+</div>
+
+<div class="reality-close">
+<p class="q">今のこの物価高のご時世に、<br>そんなに時間とお金をかけられますか？</p>
+<p class="ans">必要な事はノウハウを最低限の日数で学び、<span class="highlight">『1日も早く地元に帰って稼ぐ』</span>事です。<br><b>私の研修は最短でノウハウをお伝えする研修なのです。</b></p>
+</div>
+
+</div>
+</section>
+
+<!-- PAINS -->
+<section>
+<div class="wrap">
+<div class="sec-label">こんな悩み、ありませんか</div>
+<h2>技術不足は、そのまま<br>「断る仕事」と「安い単価」になります</h2>
+<div class="pains">
+<div class="pain"><i>×</i>水垢・シリカが落とせず、浴室の仕事を断っている</div>
+<div class="pain"><i>×</i>研磨作業が怖くて、手を出せないままになっている</div>
+<div class="pain"><i>×</i>仕上がりにムラが出て、リピーターが増えない</div>
+<div class="pain"><i>×</i>単価の良い仕事が取れず、下請け仕事に頼っている</div>
+<div class="pain"><i>×</i>洗剤を買い替えても、技術は一向に上がらない</div>
+<div class="pain"><i>×</i>集客が安定せず、毎月の収入に不安がある</div>
+</div>
+<div class="resolve">
+<p style="margin:0">ハウスクリーニングで最も難しいのは、<b>技術力の差が売上に直結する</b>という現実です。逆に言えば、正しい技術と判断力を身につければ、これらの悩みはまとめて解けます。この研修は、その最短ルートです。</p>
+</div>
+</div>
+</section>
+
+<!-- COMPARE -->
+<section class="alt">
+<div class="wrap">
+<div class="sec-label">他研修との違い</div>
+<h2>「研修という名の物売り」とは、設計が違います</h2>
+<p class="lead">大人数のデモ見学や、洗剤販売が目的の研修では技術は身につきません。1開催1名・実際の汚れた現場・技術そのものを渡すことに絞った設計です。</p>
+<div class="table-scroll">
+<table>
+<thead><tr><th></th><th class="hl">この研修</th><th>フランチャイズ研修</th><th>オンライン・物売り型</th></tr></thead>
+<tbody>
+<tr><th>期間</th><td class="hl">最短2日（上級）／7日（開業）</td><td>30〜50日程度</td><td>数時間〜数日</td></tr>
+<tr><th>形式</th><td class="hl">完全マンツーマン（1開催1名）</td><td>集合研修が中心</td><td>動画・大人数デモ見学</td></tr>
+<tr><th>実習の場</th><td class="hl">退去後の実際の空室マンション（宮崎市内）</td><td>研修施設・座学併用</td><td>実習なし、または見学のみ</td></tr>
+<tr><th>教える中身</th><td class="hl">素材判断・洗剤選定・研磨・仕上げの判断基準まで</td><td>接客・事務・ブランド教育を含む総合研修</td><td>洗剤の使い方の説明が中心</td></tr>
+<tr><th>受講後</th><td class="hl">1年間のLINEサポート（現場写真でその場で助言）＋修了証</td><td>ブランドの仕組みに依存</td><td>洗剤の再購入で対応</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- TECHNIQUES -->
+<section>
+<div class="wrap">
+<div class="sec-label">実際に扱う技術</div>
+<h2>「落とせない汚れ」を、<br>落とせる仕事に変える技術</h2>
+<div class="tech-grid">
+<div class="tech"><div class="num">01</div><h3>浴室シリカ（水垢）完全除去</h3><p>浴槽・タイル・床・ガラス扉・ホーロー壁面まで、素材を傷めずにシリカを取り切る工程と判断基準。</p></div>
+<div class="tech"><div class="num">02</div><h3>ステンレスシンク再生研磨</h3><p>エンボスタイプを含むシンクのシリカ除去から再生研磨まで。新品に近い光沢へ戻す仕上げ。</p></div>
+<div class="tech"><div class="num">03</div><h3>タイル・ホーロー研磨</h3><p>タカラスタンダードのホーロー壁面の水垢にも対応。素材ごとの研磨剤とパッドの使い分け。</p></div>
+<div class="tech"><div class="num">04</div><h3>人造大理石再生</h3><p>キッチン・洗面の人造大理石を研磨で再生。受講者が「驚くばかり」と評した技術です。</p></div>
+<div class="tech"><div class="num">05</div><h3>ガラス・鏡研磨</h3><p>浴室ガラス・鏡のウロコ取り。自社開発の研磨剤エンペラー I の使いこなしを含みます。</p></div>
+<div class="tech"><div class="num">06</div><h3>素材判断と洗剤・道具選定</h3><p>現場で迷わないための判断軸。お持ちの道具の組み合わせでも対応できるよう指導します。</p></div>
+</div>
+<p class="lead" style="margin-top:20px;font-size:14.5px">施工実績の例：浴槽シリカ除去／浴室タイル・床シリカ除去／タカラスタンダード浴室ホーロー壁面シリカ除去／ステンレスシンク（エンボス）シリカ除去・再生研磨／浴室ガラス扉・扉シリカ除去 ほか。再発しない仕上げ技術まで含みます。</p>
+<div class="photo-note">📷 <b>公開版ではここにビフォーアフター写真を掲載します。</b>仕上がりの差が一目で伝わるのがこの研修の一番の訴求です。浴室シリカ除去とシンク再生研磨のビフォーアフター数組、講師の実習風景、エンペラーシリーズの商品写真をご用意いただければ、そのまま差し込めます。</div>
+</div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="alt">
+<div class="wrap">
+<div class="sec-label">研修の流れ</div>
+<h2>2日間・9:00〜17:00<br>手を動かし続けるカリキュラム</h2>
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="true" data-day="d1">1日目 ― 浴室と研磨の基礎</button>
+<button class="tab" role="tab" aria-selected="false" data-day="d2">2日目 ― 再生研磨と戦略設計</button>
+</div>
+<div class="day-panel" id="panel-d1">
+<span class="time">DAY 1 ｜ 9:00〜17:00（休憩あり）</span>
+<h3>素材を見極め、浴室シリカを落とし切る</h3>
+<ul class="steps">
+<li><b>1</b><div><strong>素材判断</strong> ― 浴室の種類と汚れの見極め方</div></li>
+<li><b>2</b><div><strong>洗剤と道具の選定</strong> ― 素材・汚れに応じた組み合わせ</div></li>
+<li><b>3</b><div><strong>基本工程</strong> ― 作業の進め方の型を体に入れる</div></li>
+<li><b>4</b><div><strong>浴室シリカ除去実習</strong> ― 実際の空室で実践</div></li>
+<li><b>5</b><div><strong>ガラス・鏡研磨実習</strong> ― ハンドポリッシャーの使いこなし</div></li>
+</ul>
+</div>
+<div class="day-panel" id="panel-d2" hidden>
+<span class="time">DAY 2 ｜ 9:00〜17:00（休憩あり）</span>
+<h3>再生研磨を仕上げ、現場で判断できる状態へ</h3>
+<ul class="steps">
+<li><b>1</b><div><strong>ステンレスシンク再生研磨</strong> ― 光沢を戻す仕上げまで</div></li>
+<li><b>2</b><div><strong>人造大理石再生</strong> ― キッチン・洗面への展開</div></li>
+<li><b>3</b><div><strong>タイル・ホーロー研磨</strong> ― 素材別の当て方と加減</div></li>
+<li><b>4</b><div><strong>仕上げ方法・現場での判断基準</strong> ― 再発しない仕上げ</div></li>
+<li><b>5</b><div><strong>質疑＆今後の戦略設計</strong> ― 自分の事業にどう組み込むか</div></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- PROFILE -->
+<section>
+<div class="wrap">
+<div class="sec-label">講師プロフィール</div>
+<h2>教えるのは、現場で<br>技術を作ってきた本人です</h2>
+<div class="profile">
+<div class="who">
+<div class="role">ハウスクリーニング技術コンサルタント</div>
+<h3>橋口 淳</h3>
+<p>エアコンクリーニングみっちゃん本舗 代表</p>
+<ul>
+<li>業界歴18年</li>
+<li>元おそうじ本舗 上級技術アドバイザー（加盟店初）</li>
+<li>テレビ出演：UMKテレビ宮崎／MRT宮崎放送</li>
+<li>2025年〜2026年現在まで約30名が受講</li>
+</ul>
+</div>
+<div>
+<ul class="timeline">
+<li><span class="yr">2009</span><span class="dot"></span><p><b>宮崎でおそうじ本舗加盟店として開業。</b>約3年間、技術不足による集客に苦しみ、誰にも教われない中で独自の技法を身につける決意をする。</p></li>
+<li><span class="yr">2014</span><span class="dot"></span><p><b>洗剤・機材の使用方法を確立</b>（〜2017年）。現場で使える技術として体系化。</p></li>
+<li><span class="yr">2018</span><span class="dot"></span><p><b>本部へハイレベル研修をプレゼンし、採用。</b>加盟店初となる上級技術アドバイザーとして全国各地で加盟店へ技術研修を行い、洗剤・資機材の開発にも従事（〜2020年）。</p></li>
+<li><span class="yr">2024</span><span class="dot"></span><p><b>フランチャイズを脱退。</b>「技術向上＝顧客満足＝リピーター＝売上アップ」のために、一生物の技術ノウハウを困っている同業者へ広めることを使命とする。</p></li>
+</ul>
+<div class="clients"><b>主な取引先</b><span>宮崎大学生活協同組合 ／ 大東建託パートナーズ株式会社 ／ 生活協同組合コープ宮崎 ／ 日本郵便株式会社 ／ 株式会社穴吹コミュニティ</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- VOICE -->
+<section class="alt">
+<div class="wrap">
+<div class="sec-label">受講者の声</div>
+<h2>「研修を受けたら分かります」</h2>
+<div class="voice">
+<div class="from">研修受講者 ― NEXT TRIGGER 様</div>
+<blockquote>
+<p>浴室研修では、浴室の種類・汚れに応じた洗剤と道具の使い分けを学べました。しっかりと浴室の種類と汚れを見極めて作業しないといけないと再確認できました。</p>
+<p>キッチン、シンクの研修も、汚れに対しての洗剤と道具によって仕上がりが変わる事を学べました。<span class="strong">シンクの再生研磨と人造大理石の研磨には驚くばかり</span>で、この技術を早くお客様に提供したいと強く思いました。</p>
+<p class="strong">「迷っている方は研修を受ける事をオススメします！早く現場で実践したいです！！」</p>
+</blockquote>
+</div>
+<div class="support">
+<div class="ic">LINE</div>
+<div><b>受講後1年間のLINEサポート付き</b><p>現場で困ったときは、現場の写真をLINEで送ってもらえれば、その場でアドバイスします。研修で終わらせず、現場で使えるまで伴走します。</p></div>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section>
+<div class="wrap">
+<div class="sec-label">自社開発オリジナル商品</div>
+<h2>エンペラーシリーズ</h2>
+<p class="lead">ハンドポリッシャー専用設計。誰が使っても安定して研磨できるよう研究・開発したプロ専用アイテムです。ウルトラファインバブル水配合・100%天然素材。研修の資材は別販売となります。</p>
+<div class="prod-grid">
+<div class="prod"><div class="use">鏡・ガラス用</div><h3>エンペラー I（500ml）</h3><div class="price">¥11,000 <small>税込</small></div><p>ガラス・鏡のウロコや水垢を研磨で落とす専用研磨剤。</p><div class="pad">専用パッド ¥3,850（税込）</div></div>
+<div class="prod"><div class="use">タイル・ホーロー・陶器用</div><h3>エンペラー II（500ml）</h3><div class="price">¥11,000 <small>税込</small></div><p>タカラスタンダード壁面の水垢もエンペラー II で除去できます。</p><div class="pad">専用パッド ¥3,850（税込）</div></div>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="alt" id="courses">
+<div class="wrap">
+<div class="sec-label">研修費用・申込</div>
+<h2>コースは2つ。会場は宮崎市内、<br>実際の空室マンションです</h2>
+<div class="price-grid">
+<div class="course hot">
+<span class="badge">プロ向け・主力コース</span>
+<div class="days">2日間 ｜ 9:00〜17:00 ｜ 完全マンツーマン</div>
+<h3>上級技術研修<br>（浴室・シンク再生研磨）</h3>
+<div class="amount">¥275,000<small>（税込）</small></div>
+<ul>
+<li>2日間のマンツーマン実技指導</li>
+<li>受講後1年間のLINEサポート</li>
+<li>修了証の発行</li>
+<li>対象：プロのハウスクリーニング業者</li>
+</ul>
+<a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSdnxOjDKEZoHRGClzOUTVVw3HMMaDBJn0lXJHrFzw92GLUamg/viewform" target="_blank" rel="noopener">このコースに申し込む</a>
+<p class="fine">※資材（洗剤・機材、エンペラーシリーズ等）は別販売です。18年分のノウハウを提供する研修です。</p>
+</div>
+<div class="course">
+<div class="days">7日間 ｜ 新規開業者向け</div>
+<h3>上級ハウスクリーニング<br>開業研修</h3>
+<div class="amount">¥660,000<small>（税込）</small></div>
+<ul>
+<li>キッチン／レンジフード／浴室／洗面台／トイレ／エアコン分解</li>
+<li>エアコン分解の練習は受講後1年間、当社にて可能</li>
+<li>Googleホームページを無料提供</li>
+</ul>
+<a class="btn btn-dark" href="https://docs.google.com/forms/d/e/1FAIpQLSdnxOjDKEZoHRGClzOUTVVw3HMMaDBJn0lXJHrFzw92GLUamg/viewform" target="_blank" rel="noopener">開業研修に申し込む</a>
+<p class="fine">※洗剤・資機材は別途購入となります。申込フォームで希望コース「上級ハウスクリーニング開業研修」をお選びください。</p>
+</div>
+</div>
+<p class="lead" style="margin-top:20px;font-size:14.5px">エンペラーシリーズの購入も、同じ申込フォームからお申し込みいただけます。</p>
+</div>
+</section>
+
+<!-- FAQ + IMPACT NOTE -->
+<section>
+<div class="wrap">
+<div class="sec-label">よくある質問</div>
+<h2>申込の前に</h2>
+<div class="faq">
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">他の研修事業者との違いは何ですか？<span class="mark">＋</span></button>
+<div class="faq-a">「オンライン研修」「10人ほど集めてデモを見て撮影する研修」「洗剤・資材の販売が目的の研修」は一切行っていません。実技の醍醐味は実際の汚れた現場でこそ得られるため、退去後の空室マンションで、1開催1名のマンツーマン指導に絞っています。</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">研修はどこで開催されますか？<span class="mark">＋</span></button>
+<div class="faq-a">宮崎市内の、退去後の賃貸マンション（空室）です。時間は両日とも9:00〜17:00（休憩あり）です。</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">自分の道具でも受講できますか？<span class="mark">＋</span></button>
+<div class="faq-a">はい。あなたが保有する道具の組み合わせでも対応できるよう指導します。資材（エンペラーシリーズ等）は別販売です。</div>
+</div>
+<div class="faq-item">
+<button class="faq-q" aria-expanded="false">受講後のサポートはありますか？<span class="mark">＋</span></button>
+<div class="faq-a">受講後1年間、LINEでサポートします。現場で困った際は現場の写真を送っていただければ、その場でアドバイスできるよう対応しています。修了証も発行します。</div>
+</div>
+</div>
+
+<div class="impact" style="margin-top:36px">
+<h3>この試作ページに変えても、既存の仕組みへの影響について</h3>
+<ul>
+<li><b>Googleビジネスプロフィール：</b>口コミ・順位・店舗情報そのものには影響しません。必要なのは、GBPの投稿やウェブサイト欄のリンク先を新しいページのURLへ差し替える作業だけです。</li>
+<li><b>予約・申込フォーム：</b>このページの申込ボタンは、現在お使いのGoogleフォームにそのまま接続する想定です。フォーム自体は変更しません。</li>
+<li><b>顧客台帳・申込名簿：</b>フォームの回答先は今まで通りです。ページを変えても、台帳の仕組みには触れません。</li>
+<li>このページは<b>デザイン確認用の試作</b>です。内容を確認いただいてから、公開先（現在のGitHub Pages等）とURLを決めて本公開します。</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="alt final">
+<div class="wrap">
+<div class="sec-label">時は金なり</div>
+<h2>悩んでいる時間は、取り戻せません</h2>
+<p>「聞くは一時の恥、聞かぬは一生の恥」。技術不足の悩みが解決できるのであれば、1人で悩まず、解決の扉を叩いてください。受講者様のために、全力でサポートします。</p>
+<a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSdnxOjDKEZoHRGClzOUTVVw3HMMaDBJn0lXJHrFzw92GLUamg/viewform" target="_blank" rel="noopener">研修に申し込む →</a>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<b>エアコンクリーニングみっちゃん本舗</b> ― 技術研修講師：橋口 淳<br>
+お問い合わせ：sgtm1118@gmail.com ｜ 会場：宮崎市内（空室の賃貸マンション）<br>
+※本ページはデザイン試作です。料金・内容は現在の研修案内に基づいています。
+</div>
+</footer>
+
+<div class="sticky-cta">
+<div class="txt"><b>2日間 上級研修 ¥275,000（税込）</b><br>1年間のLINEサポート・修了証付き</div>
+<a class="btn btn-main" href="https://docs.google.com/forms/d/e/1FAIpQLSdnxOjDKEZoHRGClzOUTVVw3HMMaDBJn0lXJHrFzw92GLUamg/viewform" target="_blank" rel="noopener">研修に申し込む</a>
+</div>
+
+<script>
+(function(){
+var tabs = document.querySelectorAll('.tab');
+tabs.forEach(function(t){
+t.addEventListener('click', function(){
+tabs.forEach(function(x){ x.setAttribute('aria-selected','false');});
+t.setAttribute('aria-selected','true');
+document.getElementById('panel-d1').hidden = t.dataset.day!== 'd1';
+document.getElementById('panel-d2').hidden = t.dataset.day!== 'd2';
+});
+});
+document.querySelectorAll('.faq-item').forEach(function(item){
+var q = item.querySelector('.faq-q');
+q.addEventListener('click', function(){
+var open = item.classList.toggle('open');
+q.setAttribute('aria-expanded', open? 'true': 'false');
+q.querySelector('.mark').textContent = open? '−': '＋';
+});
+});
+})();
+</script>
+</body>
+</html>
